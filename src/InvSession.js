@@ -5,7 +5,7 @@ class InvSession extends Component {
     return (
       <div className="container">
         <div>
-          <h2>Inventory Session</h2>
+          <h2>{this.props.match.params.session}</h2>
         </div>
       </div>
     );
