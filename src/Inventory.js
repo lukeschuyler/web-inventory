@@ -14,6 +14,7 @@ class Inventory extends Component {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/inv_sessions`)
     .then(res => {
       this.setState({invSessions: res.data})
+      console.log(res.data)
     })
   }
 
@@ -29,7 +30,13 @@ class Inventory extends Component {
               <h4>{session.name}</h4>
               <h6>{session.date}</h6>
               <Link to={'inventory/' + session.id}>View</Link>
-              <p>{session.description}</p>
+              <ul>
+                {session.products.map((p, key) =>  
+                  <li>
+                    <img height="200px" width="200px" src={p.image} />
+                  </li>
+                )}
+              </ul>
             </li>
           )}
         </ul>
