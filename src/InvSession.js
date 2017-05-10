@@ -27,6 +27,7 @@ class InvSession extends Component {
     let products = this.state.invSession
     return (
       <div className="container">
+      <h1></h1>
         <BootstrapTable data={products} striped={ true } hover={ true } condensed={ true }>
             <TableHeaderColumn isKey dataField='id'>Product ID</TableHeaderColumn>
             <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>

@@ -8,6 +8,8 @@ import Inventory from './Inventory'
 import Waste from './Waste'
 import InvSession from './InvSession'
 import WasteSession from './WasteSession'
+import Products from './Products'
+import ProductSearch from './ProductSearch'
 import { Route, BrowserRouter } from 'react-router-dom'
 import './index.css';
 
@@ -20,6 +22,8 @@ ReactDOM.render((
       <Route exact path="/waste" component={Waste} />
       <Route path="/inventory/:session" component={InvSession} />
       <Route path="/waste/:session" component={WasteSession} />
+      <Route exact path="/products" component={Products} />
+      <Route exact path="/products/search" component={ProductSearch} />
     </App>
   </BrowserRouter>
 ),
