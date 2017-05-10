@@ -37,7 +37,7 @@ class Inventory extends Component {
     return (
     <div className="container">
       <BootstrapTable data={invSessions} striped={ true } hover={ true } >
-          <TableHeaderColumn dataSort={true} isKey dataField='id'>Session ID</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
           <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
           <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
           <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>

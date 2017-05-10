@@ -28,12 +28,12 @@ class WasteSession extends Component {
     return (
       <div className="container">
         <BootstrapTable data={products} striped={ true } hover={ true } condensed={ true }>
-            <TableHeaderColumn isKey dataField='id'>Product ID</TableHeaderColumn>
-            <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-            <TableHeaderColumn dataField='upc_code'>UPC Code</TableHeaderColumn>
-            <TableHeaderColumn dataField='price'>Price</TableHeaderColumn>
-            <TableHeaderColumn dataField='measure'>Measure</TableHeaderColumn>
-            <TableHeaderColumn dataField='quantity'>QTY/Weight</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Product ID</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='name'>Product Name</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='upc_code'>UPC Code</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='price'>Price</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='measure'>Measure</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='quantity'>QTY/Weight</TableHeaderColumn>
         </BootstrapTable>
       </div>
     );
