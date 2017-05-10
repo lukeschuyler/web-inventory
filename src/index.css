@@ -3,3 +3,23 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.product-image {
+  height: 80px;
+  width: auto;
+}
+
+.product-card {
+  height: 300px;
+  border: 1px solid gray;
+  margin: 2%;
+  width: 230px;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.product-list {
+  display: flex;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+}
