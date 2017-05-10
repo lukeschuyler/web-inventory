@@ -36,11 +36,11 @@ class Inventory extends Component {
     let invSessions = this.state.invSessions
     return (
     <div className="container">
-      <BootstrapTable data={invSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
-          <TableHeaderColumn isKey dataField='id'>Session ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='date'>Session Date</TableHeaderColumn>
-          <TableHeaderColumn dataField='username'>User</TableHeaderColumn>
-          <TableHeaderColumn dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
+      <BootstrapTable data={invSessions} striped={ true } hover={ true } >
+          <TableHeaderColumn dataSort={true} isKey dataField='id'>Session ID</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
       </BootstrapTable>
     </div>
     );
