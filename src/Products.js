@@ -25,6 +25,7 @@ class Products extends Component {
             <div className="col-xs-4 product-card">
               <img className="product-image rounded" src={p.image}/>
               <h4>{p.name}</h4>
+              <span>${p.price}</span><icon className="btn btn-sm glyphicon glyphicon-pencil"></icon>
             </div>
           )}
         </div>
