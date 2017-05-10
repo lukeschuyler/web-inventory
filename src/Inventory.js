@@ -20,6 +20,7 @@ class Inventory extends Component {
         session.date = new Date(session.date).toDateString()
       })
       this.setState({invSessions: res.data})
+      console.log(res.data)
     })
   }
 
