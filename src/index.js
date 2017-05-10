@@ -12,7 +12,7 @@ import Products from './Products'
 import ProductSearch from './ProductSearch'
 import { Route, BrowserRouter } from 'react-router-dom'
 import './index.css';
-
+import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
 ReactDOM.render((
   <BrowserRouter>
