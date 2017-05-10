@@ -18,6 +18,10 @@ class App extends Component {
             <NavItem eventKey={1} href="/waste">View Waste</NavItem>
             <NavItem eventKey={2} href="/inventory">View Inventory</NavItem>
           </Nav>
+          <Nav pullRight>
+            <NavItem eventKey={2} href="/products">View Products</NavItem>
+            <NavItem eventKey={2} href="/products/search">Search Products</NavItem>
+          </Nav>
         </Navbar>
         { this.props.children }
       </div>

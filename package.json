@@ -9,7 +9,7 @@
     "fixed-data-table-2": "^0.7.15",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
-    "react-bootstrap-table": "^3.3.3",
+    "react-bootstrap-table": "^2.10.0-beta.1",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1"
   },
