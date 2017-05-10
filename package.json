@@ -8,6 +8,7 @@
     "fixed-data-table": "^0.6.4",
     "fixed-data-table-2": "^0.7.15",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-bootstrap-table": "^3.3.3",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1"

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -8,6 +10,7 @@ import InvSession from './InvSession'
 import WasteSession from './WasteSession'
 import { Route, BrowserRouter } from 'react-router-dom'
 import './index.css';
+
 
 ReactDOM.render((
   <BrowserRouter>

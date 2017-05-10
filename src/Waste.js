@@ -1,7 +1,10 @@
+/* eslint-disable */
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+
 
 class Waste extends Component {
   constructor(props) {
@@ -11,20 +14,19 @@ class Waste extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/waste_sessions`)
     .then(res => {
       res.data.forEach(session => {
         session.date = new Date(session.date).toDateString()
       })
       this.setState({wasteSessions: res.data})
-      console.log(res.data)
     })
   }
 
   colFormatter(cell, row) {
     return (
-      <Link to={'waste/' + row.id}>
+      <Link to={'/waste/' + row.id}>
         View
       </Link>
     )
