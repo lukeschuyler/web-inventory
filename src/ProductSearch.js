@@ -5,7 +5,7 @@ class ProductSearch extends Component {
     return (
       <div className="container">
         <div>
-          <h2>ProductSearch</h2>
+          <input placeholder="Search For New Products!" className="form-control"/>
         </div>
       </div>
     );

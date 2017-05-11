@@ -36,11 +36,12 @@ class Waste extends Component {
     let wasteSessions = this.state.wasteSessions
   return (
     <div className="container">
+      <h1>Waste Sessions</h1>
       <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
-          <TableHeaderColumn isKey dataField='id'>Session ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='date'>Session Date</TableHeaderColumn>
-          <TableHeaderColumn dataField='username'>User</TableHeaderColumn>
-          <TableHeaderColumn dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
       </BootstrapTable>
     </div>
     )
