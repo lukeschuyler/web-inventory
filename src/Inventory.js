@@ -18,8 +18,14 @@ class Inventory extends Component {
     .then(res => {
       res.data.forEach(session => {
         let newDate = new Date(session.date)
-        let time = newDate.getHours() + ': ' + newDate.getMinutes()
-        console.log(newDate.getHours())
+        let hours = newDate.getHours()
+        let minutes = newDate.getMinutes()
+        let time;
+        if (newDate.getHours() < 12) {
+         time = hours + ': ' + minutes + ' AM' 
+        } else {
+         time = hours - 12 + ': ' + minutes + ' PM'
+        }
         session.date = newDate.toDateString() + ' ' + time
       })
       this.setState({invSessions: res.data})
