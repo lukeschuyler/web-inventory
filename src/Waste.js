@@ -1,9 +1,10 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import WasteSession from './WasteSession.js'
 
 
 class Waste extends Component {
@@ -12,6 +13,7 @@ class Waste extends Component {
     this.state = {
       wasteSessions: []
     }
+    this.colFormatter = this.colFormatter.bind(this)
   }
 
   componentDidMount() {
@@ -35,25 +37,28 @@ class Waste extends Component {
 
   colFormatter(cell, row) {
     return (
-      <Link to={'/waste/' + row.id}>
-        View
-      </Link>
+      <div>
+        <Link to={`${this.props.match.url}/${row.id}`}>
+          View
+        </Link>
+        <Route path={`${this.props.match.url}/:session`} component={WasteSession} />
+      </div>
     )
   }
 
   render() {
     let wasteSessions = this.state.wasteSessions
-  return (
-    <div className="container">
-      <h1>Waste Sessions</h1>
-      <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
-          <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
-      </BootstrapTable>
-    </div>
-    )
+    return (
+      <div className="container">
+        <h1>Waste Sessions</h1>
+        <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
+            <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
+        </BootstrapTable>
+      </div>
+      )
   }
 }
 
