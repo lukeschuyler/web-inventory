@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+
 class Products extends Component {
   constructor(props) {
     super(props)
@@ -26,6 +27,8 @@ class Products extends Component {
               <img className="product-image rounded" src={p.image}/>
               <h4>{p.name}</h4>
               <span>${p.price}</span><icon className="btn btn-sm glyphicon glyphicon-pencil"></icon>
+              <span>{p.upc_code}</span>
+              <div className="product-description"><p>{p.description}</p></div>
             </div>
           )}
         </div>
