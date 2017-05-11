@@ -11,14 +11,24 @@ class Product extends Component {
       name: this.props.name,
       code: this.props.upc_code,
       description: this.props.description,
-      editing: false,
-
+      id: this.props.id,
+      editing: false
     }
     this.edit = this.edit.bind(this)
   }
 
   edit() {
-    this.setState({editing: !this.state.editing})
+    this.setState({editing: true})
+  }
+
+  update(e, id, name, price, description) {
+    e.preventDefault()
+    const data = { id, name, price, description }
+    axios.patch(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
+    .then(res => {
+      console.log(res)
+      this.setState({editing: false})
+    })
   }
 
   render() {
@@ -41,7 +51,7 @@ class Product extends Component {
         image={this.state.image}
         code={this.state.code}
         description={this.state.description}
-        done={this.edit}
+        done={ (e) => { this.update(e, this.state.id, this.state.name, this.state.price, this.state.description ) } }
         changePrice={(e) => { this.setState({price: e.target.value}) }}
         changeDesc={(e) => { this.setState({description: e.target.value}) }}
         changeName={(e) => { this.setState({name: e.target.value}) }}

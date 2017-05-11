@@ -36,11 +36,16 @@ body {
 }
 
 .edit-btn {
-  margin-left: 30%;
+  margin-left: 40%;
 }
 
 .product-description-edit {
   width: 250px;
   height: 200px;
   margin-top: 5%;
+  padding: 2%;
+}
+
+.edit-p-input {
+  margin: 2%;
 }

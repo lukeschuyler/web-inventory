@@ -19,6 +19,8 @@ class Products extends Component {
     })
   }
 
+
+
   render() {
     return (
       <div className="container product-list-container">
@@ -30,6 +32,7 @@ class Products extends Component {
               name={p.name}
               code={p.upc_code}
               description={p.description}
+              id={p.id}
             />
           )}
         </div>
