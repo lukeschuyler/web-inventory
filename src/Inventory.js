@@ -2,8 +2,9 @@
 
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import InvSession from './InvSession.js'
 
 class Inventory extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Inventory extends Component {
     this.state = {
       invSessions: []
     }
+    this.colFormatter = this.colFormatter.bind(this)
   }
 
   componentDidMount() {
@@ -29,13 +31,12 @@ class Inventory extends Component {
         session.date = newDate.toDateString() + ' ' + time
       })
       this.setState({invSessions: res.data})
-      // console.log(res.data)
     })
   }
 
   colFormatter(cell, row) {
     return (
-      <Link to={'/inventory/' + row.id}>
+      <Link to={`${this.props.match.url}/${row.id}`}>
         View
       </Link>
     )
@@ -44,13 +45,18 @@ class Inventory extends Component {
   render() {
     let invSessions = this.state.invSessions
     return (
-    <div className="container">
-      <BootstrapTable data={invSessions} striped={ true } hover={ true } >
-          <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
-      </BootstrapTable>
+    <div>
+      <Route exact path={this.props.match.url} render={() => (
+      <div className="container">
+        <BootstrapTable data={invSessions} striped={ true } hover={ true } >
+            <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
+        </BootstrapTable>
+      </div>
+      )}/>
+    <Route path={`${this.props.match.url}/:session`} component={InvSession} />
     </div>
     );
   }

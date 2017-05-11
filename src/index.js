@@ -18,10 +18,8 @@ ReactDOM.render((
   <BrowserRouter>
     <App>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/inventory" component={Inventory} />
-      <Route exact path="/waste" component={Waste} />
-      <Route path="/inventory/:session" component={InvSession} />
-      <Route path="/waste/:session" component={WasteSession} />
+      <Route path="/inventory" component={Inventory} />
+      <Route path="/waste" component={Waste} />
       <Route exact path="/products" component={Products} />
       <Route exact path="/products/search" component={ProductSearch} />
     </App>
