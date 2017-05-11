@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-const EditProduct = ({ name, price, image, code, description, done }) =>
+const EditProduct = ({ name, price, image, code, description, done, changePrice, changeName, changeDesc }) =>
    (
       <div className="col-xs-4 product-card">
         <img className="product-image rounded" src={image} />

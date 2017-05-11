@@ -16,6 +16,18 @@ class Product extends Component {
     this.setState({editing: !this.state.editing})
   }
 
+  changePrice() {
+
+  }
+
+  changeDesc() {
+
+  }
+
+  changeName() {
+    
+  }
+
   render() {
    let p = this.state.p
    if(!this.state.editing) {
@@ -38,6 +50,9 @@ class Product extends Component {
         code={p.upc_code}
         description={p.description}
         done={this.edit}
+        changePrice={this.changePrice}
+        changeDesc={this.changeDesc}
+        changeName={this.changeName}
       />
     )
    }
