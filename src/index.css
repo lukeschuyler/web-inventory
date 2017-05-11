@@ -9,8 +9,8 @@ body {
 }
 
 .product-image {
-  height: 80px;
-  width: auto;
+  width: 100px;
+  height: auto;
 }
 
 .product-card {
@@ -36,4 +36,10 @@ body {
 
 .edit-btn {
   margin-left: 30%;
+}
+
+.product-description-edit {
+  width: 250px;
+  height: 200px;
+  margin-top: 5%;
 }
