@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 const EditProduct = ({ name, price, image, code, description, done, changePrice, changeName, changeDesc }) =>
    (
       <div className="col-xs-4 product-card">
-        <img className="product-image rounded" src={image} />
+        <img alt="" className="product-image rounded" src={image} />
         <icon onClick={done} className="btn btn-sm glyphicon edit-btn glyphicon-ok"></icon>
         <input onSubmit={done} className="form-control edit-p-input" onChange={changeName} type="text" value={name} />
         <span><input onSubmit={done} className="form-control edit-p-input" onChange={changePrice} type="text" value={price} /></span>
