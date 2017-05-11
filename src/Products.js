@@ -25,7 +25,11 @@ class Products extends Component {
         <div className="row product-list">
           {this.state.products.map((p, i) => 
             <Product 
-              product={p}
+              price={p.price}
+              image={p.image}
+              name={p.name}
+              code={p.upc_code}
+              description={p.description}
             />
           )}
         </div>
@@ -35,11 +39,3 @@ class Products extends Component {
 }
 
 export default Products;
-
-            // <div className="col-xs-4 product-card">
-            //     <img className="product-image rounded" src={p.image}/>
-            //     <h4>{p.name}</h4>
-            //     <span>${p.price}</span><icon className="btn btn-sm glyphicon glyphicon-pencil"></icon>
-            //     <span>{p.upc_code}</span>
-            //     <div className="product-description"><p>{p.description}</p></div>
-            //   </div>

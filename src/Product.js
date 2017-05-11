@@ -6,8 +6,13 @@ class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      p: this.props.product,
-      editing: false
+      price: this.props.price,
+      image: this.props.image,
+      name: this.props.name,
+      code: this.props.upc_code,
+      description: this.props.description,
+      editing: false,
+
     }
     this.edit = this.edit.bind(this)
   }
@@ -16,43 +21,30 @@ class Product extends Component {
     this.setState({editing: !this.state.editing})
   }
 
-  changePrice() {
-
-  }
-
-  changeDesc() {
-
-  }
-
-  changeName() {
-    
-  }
-
   render() {
-   let p = this.state.p
    if(!this.state.editing) {
     return (
       <div className="col-xs-4 product-card">
-        <img className="product-image rounded" src={p.image}/>
+        <img className="product-image rounded" src={this.state.image}/>
         <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
-        <h4>{p.name}</h4>
-        <span>${p.price}</span><br />
-        <span>{p.upc_code}</span>
-        <div className="product-description"><p>{p.description}</p></div>
+        <h4>{this.state.name}</h4>
+        <span>${this.state.price}</span><br />
+        <span>{this.state.code}</span>
+        <div className="product-description"><p>{this.state.description}</p></div>
       </div>
     );   
    } else { 
     return (
       <EditProduct 
-        name={p.name}
-        price={p.price}
-        image={p.image}
-        code={p.upc_code}
-        description={p.description}
+        name={this.state.name}
+        price={this.state.price}
+        image={this.state.image}
+        code={this.state.code}
+        description={this.state.description}
         done={this.edit}
-        changePrice={this.changePrice}
-        changeDesc={this.changeDesc}
-        changeName={this.changeName}
+        changePrice={(e) => { this.setState({price: e.target.value}) }}
+        changeDesc={(e) => { this.setState({description: e.target.value}) }}
+        changeName={(e) => { this.setState({name: e.target.value}) }}
       />
     )
    }

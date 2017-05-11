@@ -7,10 +7,10 @@ const EditProduct = ({ name, price, image, code, description, done, changePrice,
       <div className="col-xs-4 product-card">
         <img className="product-image rounded" src={image} />
         <icon onClick={done} className="btn btn-sm glyphicon edit-btn glyphicon-ok"></icon>
-        <input type="text" value={name} />
-        <span><input type="text" value={price} /></span>
+        <input onChange={changeName} type="text" value={name} />
+        <span><input onChange={changePrice} type="text" value={price} /></span>
         <span>{code}</span>
-        <textarea value={description} className="product-description-edit"></textarea>
+        <textarea onChange={changeDesc} value={description} className="product-description-edit"></textarea>
       </div>
     );
 
