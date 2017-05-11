@@ -17,10 +17,19 @@ class Inventory extends Component {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/inv_sessions`)
     .then(res => {
       res.data.forEach(session => {
-        session.date = new Date(session.date).toDateString()
+        let newDate = new Date(session.date)
+        let hours = newDate.getHours()
+        let minutes = newDate.getMinutes()
+        let time;
+        if (newDate.getHours() < 12) {
+         time = hours + ': ' + minutes + ' AM' 
+        } else {
+         time = hours - 12 + ': ' + minutes + ' PM'
+        }
+        session.date = newDate.toDateString() + ' ' + time
       })
       this.setState({invSessions: res.data})
-      console.log(res.data)
+      // console.log(res.data)
     })
   }
 
