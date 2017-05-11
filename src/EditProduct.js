@@ -9,7 +9,7 @@ const EditProduct = ({ name, price, image, code, description, done, changePrice,
         <input onSubmit={done} className="form-control edit-p-input" onChange={changeName} type="text" value={name} />
         <span><input onSubmit={done} className="form-control edit-p-input" onChange={changePrice} type="text" value={price} /></span>
         <span>{code}</span>
-        <textarea onSubmit={done} onChange={changeDesc} value={description} className="input-group form-control product-description-edit"></textarea>
+        <textarea onSubmit={done} onChange={changeDesc} value={description} className="product-description-edit"></textarea>
       </div>
     );
 

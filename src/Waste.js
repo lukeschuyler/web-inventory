@@ -23,9 +23,9 @@ class Waste extends Component {
         let minutes = newDate.getMinutes()
         let time;
         if (newDate.getHours() < 12) {
-         time = hours + ': ' + minutes + ' AM' 
+         time = hours + ':' + minutes + ' AM' 
         } else {
-         time = hours - 12 + ': ' + minutes + ' PM'
+         time = hours - 12 + ':' + minutes + ' PM'
         }
         session.date = newDate.toDateString() + ' ' + time
       })
@@ -45,11 +45,12 @@ class Waste extends Component {
     let wasteSessions = this.state.wasteSessions
   return (
     <div className="container">
-      <h1>Waste Sessions</h1>
+      <h2>Waste Sessions</h2>
+      <hr />
       <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
           <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='date'>Session Date</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
           <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
       </BootstrapTable>
     </div>

@@ -22,9 +22,9 @@ class Inventory extends Component {
         let minutes = newDate.getMinutes()
         let time;
         if (newDate.getHours() < 12) {
-         time = hours + ': ' + minutes + ' AM' 
+         time = hours + ':' + minutes + ' AM' 
         } else {
-         time = hours - 12 + ': ' + minutes + ' PM'
+         time = hours - 12 + ':' + minutes + ' PM'
         }
         session.date = newDate.toDateString() + ' ' + time
       })
@@ -45,10 +45,12 @@ class Inventory extends Component {
     let invSessions = this.state.invSessions
     return (
     <div className="container">
+      <h2>Inventory Sessions</h2>
+      <hr />
       <BootstrapTable data={invSessions} striped={ true } hover={ true } >
           <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='date'>Session Date</TableHeaderColumn>
+          <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
           <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
       </BootstrapTable>
     </div>
