@@ -41,7 +41,6 @@ class Waste extends Component {
         <Link to={`${this.props.match.url}/${row.id}`}>
           View
         </Link>
-        <Route path={`${this.props.match.url}/:session`} component={WasteSession} />
       </div>
     )
   }
@@ -49,14 +48,19 @@ class Waste extends Component {
   render() {
     let wasteSessions = this.state.wasteSessions
     return (
-      <div className="container">
-        <h1>Waste Sessions</h1>
-        <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
-            <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
-        </BootstrapTable>
+      <div>
+        <Route exact path={this.props.match.url} render={() => (
+          <div className="container">
+            <h1>Waste Sessions</h1>
+            <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
+                <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
+            </BootstrapTable>
+          </div>
+        )}/>
+        <Route path={`${this.props.match.url}/:session`} component={WasteSession} />
       </div>
       )
   }
