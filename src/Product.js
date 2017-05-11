@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
+import EditProduct from './EditProduct.js'
 
 class Product extends Component {
   constructor(props) {
@@ -10,8 +10,8 @@ class Product extends Component {
     }
   }
 
-  editPrice() {
-    
+  edit() {
+
   }
 
   render() {
@@ -19,8 +19,9 @@ class Product extends Component {
     return (
       <div className="col-xs-4 product-card">
         <img className="product-image rounded" src={p.image}/>
+        <icon onClick={this.edit} className="btn btn-sm glyphicon edit-btn glyphicon-pencil"></icon>
         <h4>{p.name}</h4>
-        <span>${p.price}</span><icon onClick={this.editPrice} className="btn btn-sm glyphicon glyphicon-pencil"></icon>
+        <span>${p.price}</span><br />
         <span>{p.upc_code}</span>
         <div className="product-description"><p>{p.description}</p></div>
       </div>
