@@ -23,8 +23,9 @@ class Sessions extends Component {
   componentDidMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/all_sessions`)
     .then(res => {
-      console.log(res.data)
-      this.setState({invSessions: res.data.inv, 
+      console.log(res.data.inv)
+      this.setState({
+        invSessions: res.data.inv, 
         wasteSessions: res.data.waste, 
         salesSessions: res.data.sales, 
         recSessions: res.data.rec, 
@@ -35,8 +36,7 @@ class Sessions extends Component {
 
   render() {
     let match = this.props.match.url
-   if(!loading) {
-    return (
+      return (
         <div>
           <Navbar className="session-navbar">
             <Nav className="session-nav">
@@ -46,22 +46,25 @@ class Sessions extends Component {
               <NavItem activeClassName="active-link" eventKey={2} href={`${match}/receiving`}><div className="nav-item rec-nav-item">Receiving</div></NavItem>
             </Nav>
           </Navbar>
-          <Route exact path={match} render={() => (
+          <Route exact path={match} render={(props) => (
             <div>
             { this.props.children }
             </div>
           )}/>
-           <Route path={`${this.props.match.url}/sales`} component={Sales} />
-           <Route path={`${this.props.match.url}/receiving`} component={Receiving} />
-           <Route path={`${this.props.match.url}/waste`} component={Waste} />
-           <Route path={`${this.props.match.url}/inventory`} component={Inventory} />
+           <Route path={`${match}/sales`} render={(props) => (
+              <Sales { ...props } sessions={this.state.salesSessions} />
+           )} />
+           <Route path={`${match}/receiving`} render={(props) => (
+              <Receiving { ...props } sessions={this.state.recSessions} />
+           )} />
+           <Route path={`${match}/waste`} render={(props) => (
+              <Waste { ...props } sessions={this.state.wasteSessions} />
+           )} />
+           <Route path={`${match}/inventory`} render={(props) => (
+              <Inventory { ...props } sessions={this.state.invSessions} />
+           )} />
         </div>
       );   
-   } else {
-     return (
-      <div><h2>Loading...</h2></div>
-     )
-   }
   }
 }
 
