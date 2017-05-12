@@ -15,10 +15,10 @@ class SalesSession extends Component {
     .then(res => {
       console.log(res)
       let itemArray = []
-      // res.data.forEach(item => {
-      //   item.product.quantity = item.quantity
-      //   itemArray.push(item.product)
-      // })
+      res.data.forEach(item => {
+        item.product.quantity = item.quantity
+        itemArray.push(item.product)
+      })
       this.setState({ salesSession: itemArray })
     })
   }
