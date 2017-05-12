@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
-import './App.css';
 import { Navbar, NavItem, MenuItem, NavDropdown, Nav } from 'react-bootstrap'
 import Headroom from 'react-headroom'
 

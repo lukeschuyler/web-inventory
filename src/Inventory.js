@@ -36,7 +36,7 @@ class Inventory extends Component {
 
   colFormatter(cell, row) {
     return (
-      <Link to={'/inventory/' + row.id}>
+      <Link to={'inventory/' + row.id}>
         View
       </Link>
     )
