@@ -23,11 +23,12 @@ class Waste extends Component {
         let newDate = new Date(session.date)
         let hours = newDate.getHours()
         let minutes = newDate.getMinutes()
+        minutes < 10 ? minutes = '0' + minutes : minutes = minutes
         let time;
         if (newDate.getHours() < 12) {
-         time = hours + ': ' + minutes + ' AM' 
+         time = hours + ':' + minutes + ' AM' 
         } else {
-         time = hours - 12 + ': ' + minutes + ' PM'
+         time = hours - 12 + ':' + minutes + ' PM'
         }
         session.date = newDate.toDateString() + ' ' + time
       })

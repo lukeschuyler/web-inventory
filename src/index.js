@@ -4,10 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Home from './Home'
-import Inventory from './Inventory'
-import Waste from './Waste'
-import InvSession from './InvSession'
-import WasteSession from './WasteSession'
+import Sessions from './Sessions.js'
 import Products from './Products'
 import ProductSearch from './ProductSearch'
 import { Route, BrowserRouter } from 'react-router-dom'
@@ -18,8 +15,7 @@ ReactDOM.render((
   <BrowserRouter>
     <App>
       <Route exact path="/" component={Home}/>
-      <Route path="/inventory" component={Inventory} />
-      <Route path="/waste" component={Waste} />
+      <Route path="/sessions" component={Sessions} />
       <Route exact path="/products" component={Products} />
       <Route exact path="/products/search" component={ProductSearch} />
     </App>

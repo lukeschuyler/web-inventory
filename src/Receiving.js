@@ -1,28 +1,29 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
-import axios from 'axios'
 import { Link, Route } from 'react-router-dom'
+import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import InvSession from './InvSession.js'
+import RecSession from './RecSession.js'
 
-class Inventory extends Component {
+
+class Receiving extends Component {
   constructor(props) {
     super();
     this.state = {
-      invSessions: []
+      recSessions: []
     }
     this.colFormatter = this.colFormatter.bind(this)
   }
 
   componentDidMount() {
-    axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/inv_sessions`)
+    axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/rec_sessions`)
     .then(res => {
       res.data.forEach(session => {
         let newDate = new Date(session.date)
         let hours = newDate.getHours()
         let minutes = newDate.getMinutes()
-        minutes < 10 ? minutes = '0' + minutes : minutes = minutes
+        minutes < 10 ? minutes = 0 + minutes : minutes = minutes
         let time;
         if (newDate.getHours() < 12) {
          time = hours + ':' + minutes + ' AM' 
@@ -31,11 +32,11 @@ class Inventory extends Component {
         }
         session.date = newDate.toDateString() + ' ' + time
       })
-      this.setState({invSessions: res.data})
+      this.setState({recSessions: res.data})
     })
   }
 
-  colFormatter(cell, row) {
+colFormatter(cell, row) {
     return (
       <Link to={`${this.props.match.url}/${row.id}`}>
         View
@@ -44,12 +45,12 @@ class Inventory extends Component {
   }
 
   render() {
-    let invSessions = this.state.invSessions
+    let recSessions = this.state.recSessions
     return (
     <div>
       <Route exact path={this.props.match.url} render={() => (
       <div className="container">
-        <BootstrapTable data={invSessions} striped={ true } hover={ true } >
+        <BootstrapTable data={recSessions} striped={ true } hover={ true } >
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
@@ -57,10 +58,10 @@ class Inventory extends Component {
         </BootstrapTable>
       </div>
       )}/>
-    <Route path={`${this.props.match.url}/:session`} component={InvSession} />
+    <Route path={`${this.props.match.url}/:session`} component={RecSession} />
     </div>
     );
   }
 }
 
-export default Inventory;
+export default Receiving;
