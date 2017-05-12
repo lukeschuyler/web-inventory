@@ -15,7 +15,7 @@ class Inventory extends Component {
     this.colFormatter = this.colFormatter.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/inv_sessions`)
     .then(res => {
       res.data.forEach(session => {

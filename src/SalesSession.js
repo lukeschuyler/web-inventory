@@ -10,7 +10,7 @@ class SalesSession extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/sales_line_items/from/${this.props.match.params.session}`)
     .then(res => {
       console.log(res)

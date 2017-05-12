@@ -12,12 +12,12 @@ class Sessions extends Component {
     let match = this.props.match.url
     return (
       <div>
-        <Navbar>
-          <Nav>
-            <NavItem eventKey={1} href={`${match}/waste`}>Waste</NavItem>
-            <NavItem eventKey={2} href={`${match}/inventory`}>Inventory</NavItem>
-            <NavItem eventKey={2} href={`${match}/sales`}>Sales</NavItem>
-            <NavItem eventKey={2} href={`${match}/receiving`}>Receiving</NavItem>
+        <Navbar className="session-navbar">
+          <Nav className="session-nav">
+            <NavItem eventKey={1} href={`${match}/waste`}><div className="nav-item waste-nav-item">Waste</div></NavItem>
+            <NavItem eventKey={2} href={`${match}/inventory`}><div className="nav-item inv-nav-item">Inventory</div></NavItem>
+            <NavItem eventKey={2} href={`${match}/sales`}><div className="nav-item sales-nav-item">Sales</div></NavItem>
+            <NavItem eventKey={2} href={`${match}/receiving`}><div className="nav-item rec-nav-item">Receiving</div></NavItem>
           </Nav>
         </Navbar>
         <Route exact path={match} render={() => (

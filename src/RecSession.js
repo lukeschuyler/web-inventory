@@ -12,7 +12,7 @@ class RecSession extends Component {
     console.log(this.props)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/rec_line_items/from/${this.props.match.params.session}`)
     .then(res => {
       let itemArray = []

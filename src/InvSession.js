@@ -10,7 +10,7 @@ class InvSession extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/inv_line_items/from/${this.props.match.params.session}`)
     .then(res => {
       let itemArray = []
