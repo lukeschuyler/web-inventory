@@ -15,7 +15,7 @@ ReactDOM.render((
   <BrowserRouter>
     <App>
       <Route exact path="/" component={Home}/>
-      <Route path="/session" component={Sessions} />
+      <Route path="/sessions" component={Sessions} />
       <Route exact path="/products" component={Products} />
       <Route exact path="/products/search" component={ProductSearch} />
     </App>
@@ -23,6 +23,3 @@ ReactDOM.render((
 ),
   document.getElementById('root')
 );
-
-      // <Route path="/inventory" component={Inventory} />
-      // <Route path="/waste" component={Waste} />

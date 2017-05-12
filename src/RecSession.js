@@ -9,6 +9,7 @@ class RecSession extends Component {
     this.state = {
       recSession: []
     }
+    console.log(this.props)
   }
 
   componentDidMount() {

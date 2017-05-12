@@ -15,7 +15,7 @@ class App extends Component {
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-              <NavItem eventKey={1} href="/session">Manage Sessions</NavItem>
+              <NavItem eventKey={1} href="/sessions">Manage Sessions</NavItem>
             </Nav>
             <Nav pullRight>
               <NavItem eventKey={2} href="/products">View Products</NavItem>
