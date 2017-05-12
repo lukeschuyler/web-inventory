@@ -6,22 +6,22 @@ import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 
-class Waste extends Component {
+class Receiving extends Component {
   constructor(props) {
     super();
     this.state = {
-      wasteSessions: []
+      recSessions: []
     }
   }
 
   componentDidMount() {
-    axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/waste_sessions`)
+    axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/receiving_sessions`)
     .then(res => {
       res.data.forEach(session => {
         let newDate = new Date(session.date)
         let hours = newDate.getHours()
         let minutes = newDate.getMinutes()
-        minutes < 10 ? minutes = '0' + minutes : minutes = minutes
+        minutes < 10 ? minutes = 0 + minutes : minutes = minutes
         let time;
         if (newDate.getHours() < 12) {
          time = hours + ':' + minutes + ' AM' 
