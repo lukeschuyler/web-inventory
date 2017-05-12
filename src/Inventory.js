@@ -51,8 +51,8 @@ class Inventory extends Component {
       <div className="container">
         <BootstrapTable data={invSessions} striped={ true } hover={ true } >
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 1000 } }  dataField='date'>Session Date</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 1000 } }  dataField='username'>User</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } }  dataField='date'>Session Date</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } }  dataField='username'>User</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
         </BootstrapTable>
       </div>

@@ -55,8 +55,8 @@ class Waste extends Component {
             <h1>Waste Sessions</h1>
             <BootstrapTable data={wasteSessions} multiColumnSearch={ true } striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
                 <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-                <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 1000 } } dataField='date'>Session Date</TableHeaderColumn>
-                <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 1000 } } dataField='username'>User</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='date'>Session Date</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
                 <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
             </BootstrapTable>
           </div>

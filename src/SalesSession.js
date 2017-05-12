@@ -31,7 +31,11 @@ class SalesSession extends Component {
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Product ID</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 1000 } }  dataField='name'>Product Name</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='upc_code'>UPC Code</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='price'>Price</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} filter={ { 
+                                                        type: 'NumberFilter', 
+                                                        delay: 200, 
+                                                        numberComparators: [ '=', '>', '<=' ] 
+                                                      } } dataField='price'>Price</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='measure'>Measure</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='quantity'>QTY/Weight</TableHeaderColumn>
         </BootstrapTable>
