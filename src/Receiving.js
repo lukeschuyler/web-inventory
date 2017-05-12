@@ -30,25 +30,25 @@ class Receiving extends Component {
         }
         session.date = newDate.toDateString() + ' ' + time
       })
-      this.setState({wasteSessions: res.data})
+      this.setState({recSessions: res.data})
     })
   }
 
   colFormatter(cell, row) {
     return (
-      <Link to={'/waste/' + row.id}>
+      <Link to={'/receiving/' + row.id}>
         View
       </Link>
     )
   }
 
   render() {
-    let wasteSessions = this.state.wasteSessions
+  let recSessions = this.state.recSessions
   return (
     <div className="container">
-      <h2>Waste Sessions</h2>
+      <h2>Receiving Sessions</h2>
       <hr />
-      <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
+      <BootstrapTable data={recSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
           <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
           <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='date'>Session Date</TableHeaderColumn>
           <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
@@ -59,4 +59,4 @@ class Receiving extends Component {
   }
 }
 
-export default Waste;
+export default Receiving;
