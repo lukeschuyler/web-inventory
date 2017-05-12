@@ -11,7 +11,7 @@ class Products extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/products`)
     .then(res => {
       console.log(res.data)

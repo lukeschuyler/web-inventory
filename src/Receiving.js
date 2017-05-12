@@ -16,21 +16,23 @@ class Receiving extends Component {
     this.colFormatter = this.colFormatter.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/rec_sessions`)
     .then(res => {
       res.data.forEach(session => {
-        let newDate = new Date(session.date)
-        let hours = newDate.getHours()
-        let minutes = newDate.getMinutes()
-        minutes < 10 ? minutes = 0 + minutes : minutes = minutes
+        let date = new Date(session.date)
+        let newDate = date.getMonth() + 1 + '/' + date.getDate() + '/' +  date.getFullYear()
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+        minutes < 10 ? minutes = '0' + minutes : minutes = minutes
         let time;
-        if (newDate.getHours() < 12) {
+        if (date.getHours() < 12) {
          time = hours + ':' + minutes + ' AM' 
         } else {
          time = hours - 12 + ':' + minutes + ' PM'
         }
-        session.date = newDate.toDateString() + ' ' + time
+        session.date = '0' + newDate 
+        session.time = time
       })
       this.setState({recSessions: res.data})
     })
@@ -50,10 +52,11 @@ colFormatter(cell, row) {
     <div>
       <Route exact path={this.props.match.url} render={() => (
       <div className="container">
-        <BootstrapTable data={recSessions} striped={ true } hover={ true } >
+        <BootstrapTable data={recSessions} striped={ true } hover={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} filter={ { type: 'DateFilter' } }  dataField='date'>Session Date</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='time'>Session Time</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } }  dataField='username'>User</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
         </BootstrapTable>
       </div>

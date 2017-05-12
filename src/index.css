@@ -53,3 +53,49 @@ body {
 textarea {
   border: 0px;
 }
+
+.session-navbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.session-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.waste-nav-item {
+  background-color: rgba(255,200,0,.8)
+}
+
+.inv-nav-item {
+  background-color: rgba(0,90,255,.8)
+}
+
+.sales-nav-item {
+  background-color: rgba(217,24,31,.8)
+}
+
+.rec-nav-item {
+  background-color: rgb(30, 200, 24)
+}
+
+.nav-item {
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+  color: rgba(0,0,0, .9);
+  box-shadow: 0px 5px 5px rgba(0,0,0, .5);
+  /*margin-right: 130px;*/
+}
+
+.active-link {
+  border: 5px solid black;
+}

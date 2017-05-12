@@ -16,21 +16,23 @@ class Waste extends Component {
     this.colFormatter = this.colFormatter.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/waste_sessions`)
     .then(res => {
       res.data.forEach(session => {
-        let newDate = new Date(session.date)
-        let hours = newDate.getHours()
-        let minutes = newDate.getMinutes()
+        let date = new Date(session.date)
+        let newDate = date.getMonth() + 1 + '/' + date.getDate() + '/' +  date.getFullYear()
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
         minutes < 10 ? minutes = '0' + minutes : minutes = minutes
         let time;
-        if (newDate.getHours() < 12) {
+        if (date.getHours() < 12) {
          time = hours + ':' + minutes + ' AM' 
         } else {
          time = hours - 12 + ':' + minutes + ' PM'
         }
-        session.date = newDate.toDateString() + ' ' + time
+        session.date = '0' + newDate 
+        session.time = time
       })
       this.setState({wasteSessions: res.data})
     })
@@ -53,10 +55,11 @@ class Waste extends Component {
         <Route exact path={this.props.match.url} render={() => (
           <div className="container">
             <h1>Waste Sessions</h1>
-            <BootstrapTable data={wasteSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
+            <BootstrapTable data={wasteSessions} multiColumnSearch={ true } striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
                 <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-                <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
-                <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} filter={ { type: 'DateFilter' } } dataField='date'>Session Date</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} dataField='time'>Session Time</TableHeaderColumn>
+                <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
                 <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
             </BootstrapTable>
           </div>
