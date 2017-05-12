@@ -1,17 +1,19 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import SalesSession from './SalesSession.js'
 
 
-class Receiving extends Component {
+class Sales extends Component {
   constructor(props) {
     super();
     this.state = {
       salesSessions: []
     }
+    this.colFormatter = this.colFormatter.bind(this)
   }
 
   componentDidMount() {
@@ -34,28 +36,31 @@ class Receiving extends Component {
     })
   }
 
-  colFormatter(cell, row) {
+colFormatter(cell, row) {
     return (
-      <Link to={'/sales/' + row.id}>
+      <Link to={`${this.props.match.url}/${row.id}`}>
         View
       </Link>
     )
   }
 
   render() {
-  let salesSessions = this.state.salesSessions
-  return (
-    <div className="container">
-      <h2>Sales Sessions</h2>
-      <hr />
-      <BootstrapTable data={salesSessions} striped={ true } hover={ true } condensed={ true } scrollTop={'Bottom'}>
-          <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='date'>Session Date</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
-          <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
-      </BootstrapTable>
+    let salesSessions = this.state.salesSessions
+    return (
+    <div>
+      <Route exact path={this.props.match.url} render={() => (
+      <div className="container">
+        <BootstrapTable data={salesSessions} striped={ true } hover={ true } >
+            <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='username'>User</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
+        </BootstrapTable>
+      </div>
+      )}/>
+    <Route path={`${this.props.match.url}/:session`} component={SalesSession} />
     </div>
-    )
+    );
   }
 }
 

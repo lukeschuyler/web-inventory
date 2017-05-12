@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import SalesSession from 'SalesSession.js'
+import { Navbar, NavItem, MenuItem, NavDropdown, Nav } from 'react-bootstrap'
+import { Route } from 'react-router-dom'
 import Sales from './Sales.js'
 import Receiving from './Receiving.js'
-import RecSession from 'RecSession.js'
 import Inventory from './Inventory'
 import Waste from './Waste'
-import InvSession from './InvSession'
-import WasteSession from './WasteSession'
+
 
 class Sessions extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
-    let products = this.state.recSession
+    let match = this.props.match.url
     return (
-      <div className="container">
-        <BootstrapTable data={products} striped={ true } hover={ true } condensed={ true }>
-            <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Product ID</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='name'>Product Name</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='upc_code'>UPC Code</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='price'>Price</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='measure'>Measure</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='quantity'>QTY/Weight</TableHeaderColumn>
-        </BootstrapTable>
+      <div>
+        <Navbar>
+          <Nav>
+            <NavItem eventKey={1} href={`${match}/waste`}>Waste</NavItem>
+            <NavItem eventKey={2} href={`${match}/inventory`}>Inventory</NavItem>
+            <NavItem eventKey={2} href={`${match}/sales`}>Sales</NavItem>
+            <NavItem eventKey={2} href={`${match}/receiving`}>Receiving</NavItem>
+          </Nav>
+        </Navbar>
+        <Route exact path={match} render={() => (
+          <div>
+          { this.props.children }
+          </div>
+        )}/>
+         <Route path={`${this.props.match.url}/sales`} component={Sales} />
+         <Route path={`${this.props.match.url}/receiving`} component={Receiving} />
+         <Route path={`${this.props.match.url}/waste`} component={Waste} />
+         <Route path={`${this.props.match.url}/inventory`} component={Inventory} />
       </div>
     );
   }
