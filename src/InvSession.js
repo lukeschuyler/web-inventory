@@ -27,9 +27,9 @@ class InvSession extends Component {
     return (
       <div className="container">
       <h1></h1>
-        <BootstrapTable data={products} striped={ true } hover={ true } condensed={ true }>
+        <BootstrapTable data={products} striped={ true } hover={ true } condensed={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} isKey dataField='id'>Product ID</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='name'>Product Name</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 1000 } }  dataField='name'>Product Name</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='upc_code'>UPC Code</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='price'>Price</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='measure'>Measure</TableHeaderColumn>
