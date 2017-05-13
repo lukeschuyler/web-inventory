@@ -48,6 +48,12 @@ body {
   padding: 2%;
 }
 
+.product-image-container {
+  height: 100px;
+  display: flex;
+  align-items: center; 
+}
+
 .edit-p-input {
   margin: 2%;
 }

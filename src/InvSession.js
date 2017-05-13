@@ -26,7 +26,6 @@ class InvSession extends Component {
     let products = this.state.invSession
     return (
       <div className="container">
-      <h1></h1>
         <BootstrapTable data={products} striped={ true } hover={ true } condensed={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} isKey dataField='id'>Product ID</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } }  dataField='name'>Product Name</TableHeaderColumn>
