@@ -23,7 +23,6 @@ class Sessions extends Component {
   componentDidMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/all_sessions`)
     .then(res => {
-      console.log(res.data.inv)
       this.setState({
         invSessions: res.data.inv, 
         wasteSessions: res.data.waste, 

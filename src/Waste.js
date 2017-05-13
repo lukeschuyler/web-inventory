@@ -14,6 +14,7 @@ class Waste extends Component {
       wasteSessions: props.sessions
     }
     this.colFormatter = this.colFormatter.bind(this)
+    this.dateFormatter = this.dateFormatter.bind(this)
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -27,9 +28,9 @@ class Waste extends Component {
   //     res.data.forEach(session => {
   //       let date = new Date(session.date)
   //       let newDate = date.getMonth() + 1 + '/' + date.getDate() + '/' +  date.getFullYear()
-  //       let hours = date.getHours()
-  //       let minutes = date.getMinutes()
-  //       minutes < 10 ? minutes = '0' + minutes : minutes = minutes
+        // let hours = date.getHours()
+        // let minutes = date.getMinutes()
+        // minutes < 10 ? minutes = '0' + minutes : minutes = minutes
   //       let time;
   //       if (date.getHours() < 12) {
   //        time = hours + ':' + minutes + ' AM' 
@@ -53,6 +54,12 @@ class Waste extends Component {
     )
   }
 
+  dateFormatter(cell, row) {
+    cell = new Date(cell)
+    return `${('0' + (cell.getMonth() + 1)).slice(-2)}/${('0' + cell.getDate()).slice(-2)}/${cell.getFullYear()}`;
+  }
+
+
   render() {
     let wasteSessions = this.state.wasteSessions
     return (
@@ -60,10 +67,10 @@ class Waste extends Component {
         <Route exact path={this.props.match.url} render={(props) => (
           <div className="container">
             <h1>Waste Sessions</h1>
+            <hr />
             <BootstrapTable data={wasteSessions} striped={ true } hover={ true } >
                 <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-                <TableHeaderColumn dataSort={true} filter={ { type: 'DateFilter' } } dataField='date'>Session Date</TableHeaderColumn>
-                <TableHeaderColumn dataSort={true} dataField='time'>Session Time</TableHeaderColumn>
+                <TableHeaderColumn dataFormat={ this.dateFormatter } dataSort={true} filter={ { type: 'DateFilter' } } dataField='date'>Session Date</TableHeaderColumn>
                 <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
                 <TableHeaderColumn dataSort={true} dataField dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
             </BootstrapTable>

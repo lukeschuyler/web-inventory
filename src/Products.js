@@ -14,16 +14,15 @@ class Products extends Component {
   componentWillMount() {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/products`)
     .then(res => {
-      console.log(res.data)
       this.setState({products: res.data})
     })
   }
 
-
-
   render() {
     return (
       <div className="container product-list-container">
+        <h1>Product List</h1>
+        <hr />
         <div className="row product-list">
           {this.state.products.map((p, i) => 
             <Product 

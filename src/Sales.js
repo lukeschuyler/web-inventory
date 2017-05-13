@@ -14,7 +14,7 @@ class Sales extends Component {
       salesSessions: props.sessions
     }
     this.colFormatter = this.colFormatter.bind(this)
-    console.log(props)
+    this.dateFormatter = this.dateFormatter.bind(this)
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -51,16 +51,22 @@ colFormatter(cell, row) {
     )
   }
 
+  dateFormatter(cell, row) {
+    cell = new Date(cell)
+    return `${('0' + (cell.getMonth() + 1)).slice(-2)}/${('0' + cell.getDate()).slice(-2)}/${cell.getFullYear()}`;
+  }
+
+
   render() {
     let salesSessions = this.state.salesSessions
     return (
     <div>
       <Route exact path={this.props.match.url} render={(props) => (
       <div className="container">
+        <h1>Sales Sessions</h1>
         <BootstrapTable data={salesSessions} striped={ true } hover={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} filter={ { type: 'DateFilter' } } dataField='date'>Session Date</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataField='date'>Session Date</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataFormat={ this.dateFormatter } filter={ { type: 'DateFilter' } } dataField='date'>Session Date</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
         </BootstrapTable>
