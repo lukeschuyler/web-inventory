@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import EditProduct from './EditProduct.js'
+import { Modal, Button } from 'react-bootstrap'
 
 class Product extends Component {
   constructor(props) {
@@ -12,13 +13,18 @@ class Product extends Component {
       code: this.props.upc_code,
       description: this.props.description,
       id: this.props.id,
-      editing: false
+      editing: false,
+      show: false
     }
     this.edit = this.edit.bind(this)
   }
 
   edit() {
     this.setState({editing: true})
+  }
+
+  delete() {
+    this.setState({ show: true})
   }
 
   update(e, id, name, price, description) {
@@ -32,18 +38,32 @@ class Product extends Component {
   }
 
   render() {
+    let close = () => this.setState({ show: false});
    if(!this.state.editing) {
     return (
-      <div className="col-xs-4 product-card">
-        <div className="product-image-container"><img alt="" className="product-image rounded" src={this.state.image}/></div>
-        <span>
-          <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
-          <icon onClick={this.delete} className="btn glyphicon delete-btn glyphicon-remove"></icon>
-        </span>
-        <h4>{this.state.name}</h4>
-        <span>${this.state.price}</span><br />
-        <span>{this.state.code}</span>
-        <div className="product-description"><p>{this.state.description}</p></div>
+      <div className="modal-container product-list">
+        <div className="modal-container col-xs-4 product-card">
+          <div className="product-image-container"><img alt="" className="product-image rounded" src={this.state.image}/></div>
+            <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
+            <icon onClick={() => { this.delete(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>
+          <h4>{this.state.name}</h4>
+          <span>${this.state.price}</span><br />
+          <span>{this.state.code}</span>
+          <div className="product-description"><p>{this.state.description}</p></div>
+        </div>
+        <Modal
+          show={this.state.show}
+          onHide={close}
+          container={this}
+          aria-labelledby="contained-modal-title"
+        >
+          <Modal.Body>
+            Are You sure you want to remove this {this.state.name} from your product list?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );   
    } else { 
