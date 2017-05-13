@@ -23,8 +23,12 @@ class Product extends Component {
     this.setState({editing: true})
   }
 
-  delete() {
+  showModal() {
     this.setState({ show: true})
+  }
+
+  delete(id) {
+
   }
 
   update(e, id, name, price, description) {
@@ -45,23 +49,24 @@ class Product extends Component {
         <div className="modal-container">
           <div className="product-image-container"><img alt="" className="product-image rounded" src={this.state.image}/></div>
             <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
-            <icon onClick={() => { this.delete(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>
+            <icon onClick={() => { this.showModal(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>
           <h4>{this.state.name}</h4>
           <span>${this.state.price}</span><br />
           <span>{this.state.code}</span>
           <div className="product-description"><p>{this.state.description}</p></div>
         </div>
-        <Modal
-          show={this.state.show}
-          onHide={close}
-          container={this}
-          aria-labelledby="contained-modal-title"
-        >
+          <Modal
+            show={this.state.show}
+            onHide={close}
+            container={this}
+            aria-labelledby="contained-modal-title"
+          >
           <Modal.Body>
             Are You sure you want to remove this {this.state.name} from your product list?
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={close}>Close</Button>
+            <Button onClick={() => { this.delete(this.state.id) }}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
