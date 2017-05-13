@@ -17,6 +17,7 @@ class Product extends Component {
       show: false
     }
     this.edit = this.edit.bind(this)
+    this.delete = this.delete.bind(this)
   }
 
   edit() {
@@ -28,7 +29,11 @@ class Product extends Component {
   }
 
   delete(id) {
-
+    axios.delete(`https://inventory-manager-ls.herokuapp.com/api/v1/products/${id}`)
+    .then(res => {
+      console.log(res)
+      this.setState({show: false})
+    })
   }
 
   update(e, id, name, price, description) {
@@ -66,7 +71,7 @@ class Product extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={close}>Close</Button>
-            <Button onClick={() => { this.delete(this.state.id) }}>Close</Button>
+            <Button onClick={() => { this.delete(this.state.id) }}>Delete</Button>
           </Modal.Footer>
         </Modal>
       </div>

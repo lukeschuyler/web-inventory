@@ -9,6 +9,8 @@ class Products extends Component {
     this.state = {
       products: []
     }
+
+    this.deleteItem = this.deleteItem.bind(this)
   }
 
   componentWillMount() {
@@ -16,6 +18,11 @@ class Products extends Component {
     .then(res => {
       this.setState({products: res.data})
     })
+  }
+
+  deleteItem(i) {
+    this.state.products.splice(i, 1)
+    this.setState({ products: this.state.products })
   }
 
   render() {
@@ -32,6 +39,7 @@ class Products extends Component {
               code={p.upc_code}
               description={p.description}
               id={p.id}
+              deleteItem={() => { this.deleteItem(i) } }
             />
           )}
         </div>
