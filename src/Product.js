@@ -41,8 +41,8 @@ class Product extends Component {
     let close = () => this.setState({ show: false});
    if(!this.state.editing) {
     return (
-      <div className="modal-container product-list">
-        <div className="modal-container col-xs-4 product-card">
+      <div className="product-card col-xs-4">
+        <div className="modal-container">
           <div className="product-image-container"><img alt="" className="product-image rounded" src={this.state.image}/></div>
             <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
             <icon onClick={() => { this.delete(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>

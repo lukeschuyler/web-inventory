@@ -110,6 +110,7 @@ textarea {
 
 .modal-container {
   position: relative;
+  width: 80%;
 }
 .modal-container .modal, .modal-container .modal-backdrop {
   position: absolute;
