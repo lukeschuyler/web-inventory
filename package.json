@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "amazon-product-api": "^0.4.3",
     "axios": "^0.16.1",
     "bootstrap": "^3.3.7",
     "fixed-data-table": "^0.6.4",
