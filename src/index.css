@@ -15,6 +15,18 @@ body {
   height: auto;
 }
 
+.product-image-search {
+  width: auto;
+  height: 100px;
+}
+
+.product-image-container-search {
+  height: 80px;
+  width: 120px;
+  display: flex;
+  align-items: center; 
+}
+
 .product-card {
   height: 400px;
   min-width: 300px;
