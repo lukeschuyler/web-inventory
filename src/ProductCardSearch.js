@@ -1,0 +1,106 @@
+import React, { Component } from 'react';
+import { Modal, Button } from 'react-bootstrap'
+import axios from 'axios'
+
+class ProductCardSearch extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: this.props.name,
+      price: this.props.price,
+      image: this.props.image,
+      description: this.props.description,
+      code: this.props.code,
+      show: false
+    }
+    this.closeModal = this.closeModal.bind(this)
+    this.showModal = this.showModal.bind(this)
+    this.addProduct = this.addProduct.bind(this)
+  }
+
+  showModal() {
+    this.setState({show:true})
+  }
+
+  closeModal() {
+    this.setState({show:false})
+  }
+
+  addProduct(p, i) {
+    const data = { 
+      description: this.state.description, 
+      image: this.state.image, 
+      measure: 'EA',
+      name: this.state.name,
+      popularity: 7,
+      price: this.state.price.slice(1),
+      upc_code: this.state.code.toString()
+    }
+    axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
+    .then(res => {
+      this.setState({show: false})
+    })
+  }
+
+  render() {
+    return  (
+      <div className="col-xs-4 product-card">
+         <div className="product-image-container-search"><img alt="" className="product-image-search rounded" src={this.state.image} /></div>
+        <icon onClick={this.showModal} 
+          className="btn btn-sm glyphicon edit-btn glyphicon-plus"></icon>
+        <h4>{this.state.name}</h4>
+        <span>List Price: {this.state.price}</span><br />
+        <span>{this.state.code}</span>
+        <div className="product-description"><p>{this.state.description}</p></div>
+        <div className="modal-container">
+            <Modal
+              show={this.state.show}
+              onHide={this.closeModal}
+              container={this}
+              aria-labelledby="contained-modal-title"
+            >
+            <Modal.Body>
+              Are You sure you want to add {this.state.name} to your product list?
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.closeModal}>Close</Button>
+              <Button onClick={this.addProduct}>Add</Button>
+            </Modal.Footer>
+          </Modal>
+        s</div>
+      </div>
+    );
+  }
+}
+
+// const ProductCardSearch = ({ name, show, price, image, code, description, container, addProduct, showModal, closeModal }) =>
+//  (
+//     <div className="col-xs-4 product-card">
+//        <div className="product-image-container-search"><img alt="" className="product-image-search rounded" src={image} /></div>
+//       <icon onClick={showModal} 
+//         className="btn btn-sm glyphicon edit-btn glyphicon-plus"></icon>
+//       <h4>{name}</h4>
+//       <span>List Price: {price}</span><br />
+//       <span>{code}</span>
+//       <div className="product-description"><p>{description}</p></div>
+//       <div className="modal-container">
+//           <Modal
+//             show={show}
+//             onHide={closeModal}
+//             container={container}
+//             aria-labelledby="contained-modal-title"
+//           >
+//           <Modal.Body>
+//             Are You sure you want to add {name} to your product list?
+//           </Modal.Body>
+//           <Modal.Footer>
+//             <Button onClick={closeModal}>Close</Button>
+//             <Button onClick={addProduct}>Add</Button>
+//           </Modal.Footer>
+//         </Modal>
+//       s</div>
+//     </div>
+//   );
+
+
+export default ProductCardSearch;
