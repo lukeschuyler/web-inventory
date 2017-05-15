@@ -58,7 +58,6 @@ class Product extends Component {
           <span>${this.state.price}</span><br />
           <span>{this.state.code}</span>
           <div className="product-description"><p>{this.state.description}</p></div>
-
           <div className="modal-container">
           <Modal
             show={this.state.show}
