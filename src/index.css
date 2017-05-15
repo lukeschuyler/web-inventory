@@ -156,3 +156,9 @@ textarea {
   box-shadow: 0px 5px 5px rgba(0,0,0, .5);
   /*margin-right: 130px;*/
 }
+
+.amazon-search {
+  width: 30%;
+  display: inline;
+  margin-right: 3%;
+}

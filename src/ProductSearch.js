@@ -9,7 +9,8 @@ class ProductSearch extends Component {
     this.state = {
       query: '',
       products: [],
-      loading: false
+      loading: false,
+      notFound: false
     }
   }
 
@@ -19,49 +20,42 @@ class ProductSearch extends Component {
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/search`, { query: this.state.query })
     .then(res => {
       console.log(res.data)
-      this.setState({products: res.data, loading: false})
+      this.setState({ products: res.data, loading: false, notFound: false })
+    })
+    .catch(err => {
+      this.setState({notFound:true})
     })
   }
 
   render() {
     let loading = this.state.loading
-    if (!loading) {
+    let notFound = this.state.notFound ? <h3>Item Not Found</h3> : ''
     return (
-        <div>
-          <div className="container">
-            <form>
-              <input onChange={(e) => { this.setState({query: e.target.value}) }}  placeholder="Search For New Products!" className="form-control"/>
-              <button onClick={(e) => { this.search(e) } } className="btn btn-primary">Search</button>
-            </form>
-          </div>
-          <div className="container product-list-container">
-            <h1>Search Products</h1>
-            <hr />
-            <div className="row">
-              {this.state.products.map((p, i) => 
-                <ProductCardSearch 
-                  key={p.ASIN[0]}
-                  price={p.ItemAttributes[0].ListPrice[0].FormattedPrice[0]}
-                  image={p.ImageSets[0].ImageSet[0].MediumImage[0].URL[0]}
-                  name={p.ItemAttributes[0].Title[0]}
-                  code={p.ItemAttributes[0].UPC[0]}
-                  description={p.ItemAttributes[0].Feature[1]}
-                />
-              )}
-            </div>
-          </div>
-        </div>
-      );     
-    } else {
-      return (
+      <div>
         <div className="container">
           <form>
-            <input onChange={(e) => { this.setState({query: e.target.value}) }}  placeholder="Search For New Products!" className="form-control"/>
+            <input value={this.state.query} onChange={(e) => { this.setState({query: e.target.value}) }  }  placeholder="Search" className="amazon-search form-control"/>
             <button onClick={(e) => { this.search(e) } } className="btn btn-primary">Search</button>
           </form>
         </div>
-      )
-    } 
+        <div className="container product-list-container">
+          <hr />
+          {notFound}
+          <div className="row">
+            {this.state.products.map((p, i) => 
+              <ProductCardSearch 
+                key={p.ASIN}
+                price={p.price}
+                image={p.image}
+                name={p.name}
+                code={p.UPC}
+                description={p.description}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    );      
   }
 }
 
