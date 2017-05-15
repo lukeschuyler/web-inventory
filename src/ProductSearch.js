@@ -25,7 +25,15 @@ class ProductSearch extends Component {
   }
 
   addProduct(p) {
-    const data = { description: p.ItemAttributes[0].Feature[1]}
+    const data = { 
+      description: p.ItemAttributes[0].Feature[1], 
+      image: p.ImageSets[0].ImageSet[0].MediumImage[0].URL[0], 
+      measure: 'EA',
+      name: p.ItemAttributes[0].Title[0],
+      popularity: 7,
+      price: p.ItemAttributes[0].ListPrice[0].FormattedPrice[0].slice(1),
+      upc_code: p.ItemAttributes[0].UPC[0].toString()
+    }
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
     .then(res => {
       console.log(res)
