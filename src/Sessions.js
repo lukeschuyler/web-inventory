@@ -39,10 +39,10 @@ class Sessions extends Component {
       return (
         <div>
           <Breadcrumb className="container session-navbar">
-            <Breadcrumb.Item eventKey={1} href={`${match}/waste`}><div className="nav-item waste-nav-item">Waste</div></Breadcrumb.Item>
-            <Breadcrumb.Item eventKey={2} href={`${match}/inventory`}><div className="nav-item inv-nav-item">Inventory</div></Breadcrumb.Item>
-            <Breadcrumb.Item eventKey={2} href={`${match}/sales`}><div className="nav-item sales-nav-item">Sales</div></Breadcrumb.Item>
-            <Breadcrumb.Item eventKey={2} href={`${match}/receiving`}><div className="nav-item rec-nav-item">Receiving</div></Breadcrumb.Item>
+            <Breadcrumb.Item eventKey={1} href={`${match}/waste`}><div className="darken nav-item waste-nav-item">Waste</div></Breadcrumb.Item>
+            <Breadcrumb.Item eventKey={2} href={`${match}/inventory`}><div className="darken nav-item inv-nav-item">Inventory</div></Breadcrumb.Item>
+            <Breadcrumb.Item eventKey={2} href={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></Breadcrumb.Item>
+            <Breadcrumb.Item eventKey={2} href={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></Breadcrumb.Item>
           </Breadcrumb>
           <Route path={match} render={(props) => (
             <div>
