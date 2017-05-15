@@ -12,6 +12,7 @@ class ProductSearch extends Component {
       show: false,
       loading: false
     }
+    this.addProduct = this.addProduct.bind(this)
   }
 
   search(e) {
@@ -24,20 +25,21 @@ class ProductSearch extends Component {
     })
   }
 
-  addProduct(p) {
-    const data = { 
-      description: p.ItemAttributes[0].Feature[1], 
-      image: p.ImageSets[0].ImageSet[0].MediumImage[0].URL[0], 
-      measure: 'EA',
-      name: p.ItemAttributes[0].Title[0],
-      popularity: 7,
-      price: p.ItemAttributes[0].ListPrice[0].FormattedPrice[0].slice(1),
-      upc_code: p.ItemAttributes[0].UPC[0].toString()
-    }
-    axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
-    .then(res => {
-      console.log(res)
-    })
+  addProduct(p, i) {
+    console.log(p, i)
+    // const data = { 
+    //   description: p.ItemAttributes[0].Feature[1], 
+    //   image: p.ImageSets[0].ImageSet[0].MediumImage[0].URL[0], 
+    //   measure: 'EA',
+    //   name: p.ItemAttributes[0].Title[0],
+    //   popularity: 7,
+    //   price: p.ItemAttributes[0].ListPrice[0].FormattedPrice[0].slice(1),
+    //   upc_code: p.ItemAttributes[0].UPC[0].toString()
+    // }
+    // axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
+    // .then(res => {
+    //   this.setState({show: false})
+    // })
   }
 
   render() {
@@ -57,14 +59,14 @@ class ProductSearch extends Component {
             <div className="row">
               {this.state.products.map((p, i) => 
                 <ProductCardSearch 
-                  key={p.ASIN[0]}
+                  key={p.id}
                   price={p.ItemAttributes[0].ListPrice[0].FormattedPrice[0]}
                   image={p.ImageSets[0].ImageSet[0].MediumImage[0].URL[0]}
                   name={p.ItemAttributes[0].Title[0]}
                   code={p.ItemAttributes[0].UPC[0]}
                   description={p.ItemAttributes[0].Feature[1]}
                   id={p.id}
-                  addProduct={ () => { this.addProduct(p) } }
+                  addProduct={ () => { this.addProduct(p, i) } }
                   showModal={ () => { this.setState({ show: true }) } }
                   closeModal={ () => { this.setState({ show: false }) }}
                   show={this.state.show}
