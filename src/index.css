@@ -159,4 +159,6 @@ textarea {
 
 .amazon-search {
   width: 30%;
+  display: inline;
+  margin-right: 3%;
 }

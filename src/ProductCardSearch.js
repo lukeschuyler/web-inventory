@@ -30,7 +30,7 @@ class ProductCardSearch extends Component {
     const data = { 
       description: this.state.description, 
       image: this.state.image, 
-      measure: 'EA',
+      measure: 'QTY',
       name: this.state.name,
       popularity: 7,
       price: this.state.price.slice(1),
