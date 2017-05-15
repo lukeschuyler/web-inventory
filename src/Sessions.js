@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavItem, MenuItem, NavDropdown, Nav } from 'react-bootstrap'
+import { Navbar, NavItem, MenuItem, NavDropdown, Nav, Breadcrumb } from 'react-bootstrap'
 import { Route } from 'react-router-dom'
 import Sales from './Sales.js'
 import Receiving from './Receiving.js'
@@ -30,6 +30,7 @@ class Sessions extends Component {
         recSessions: res.data.rec, 
         loading: false
       })
+      console.log(this.state)
     })
   }
 
@@ -37,15 +38,13 @@ class Sessions extends Component {
     let match = this.props.match.url
       return (
         <div>
-          <Navbar className="session-navbar">
-            <Nav className="session-nav">
-              <NavItem activeClassName="active-link" eventKey={1} href={`${match}/waste`}><div className="nav-item waste-nav-item">Waste</div></NavItem>
-              <NavItem activeClassName="active-link" eventKey={2} href={`${match}/inventory`}><div className="nav-item inv-nav-item">Inventory</div></NavItem>
-              <NavItem activeClassName="active-link" eventKey={2} href={`${match}/sales`}><div className="nav-item sales-nav-item">Sales</div></NavItem>
-              <NavItem activeClassName="active-link" eventKey={2} href={`${match}/receiving`}><div className="nav-item rec-nav-item">Receiving</div></NavItem>
-            </Nav>
-          </Navbar>
-          <Route exact path={match} render={(props) => (
+          <Breadcrumb className="container session-navbar">
+            <Breadcrumb.Item eventKey={1} href={`${match}/waste`}><div className="nav-item waste-nav-item">Waste</div></Breadcrumb.Item>
+            <Breadcrumb.Item eventKey={2} href={`${match}/inventory`}><div className="nav-item inv-nav-item">Inventory</div></Breadcrumb.Item>
+            <Breadcrumb.Item eventKey={2} href={`${match}/sales`}><div className="nav-item sales-nav-item">Sales</div></Breadcrumb.Item>
+            <Breadcrumb.Item eventKey={2} href={`${match}/receiving`}><div className="nav-item rec-nav-item">Receiving</div></Breadcrumb.Item>
+          </Breadcrumb>
+          <Route path={match} render={(props) => (
             <div>
             { this.props.children }
             </div>

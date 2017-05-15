@@ -11,11 +11,11 @@ class App extends Component {
           <Navbar className="app-nav">
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/">Invent Simple</a>
+                <a href="/">Simply Managed</a>
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-              <NavItem eventKey={1} href="/sessions">Manage Sessions</NavItem>
+              <NavItem eventKey={1} href="/sessions">Sessions</NavItem>
             </Nav>
             <Nav pullRight>
               <NavItem eventKey={2} href="/products">View Products</NavItem>
