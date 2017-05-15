@@ -21,29 +21,6 @@ class Receiving extends Component {
       nextState.recSessions = nextProps.sessions;  
     }
 
-
-  // componentWillMount() {
-  //   axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/rec_sessions`)
-  //   .then(res => {
-  //     res.data.forEach(session => {
-  //       let date = new Date(session.date)
-  //       let newDate = date.getMonth() + 1 + '/' + date.getDate() + '/' +  date.getFullYear()
-  //       let hours = date.getHours()
-  //       let minutes = date.getMinutes()
-  //       minutes < 10 ? minutes = '0' + minutes : minutes = minutes
-  //       let time;
-  //       if (date.getHours() < 12) {
-  //        time = hours + ':' + minutes + ' AM' 
-  //       } else {
-  //        time = hours - 12 + ':' + minutes + ' PM'
-  //       }
-  //       session.date = '0' + newDate 
-  //       session.time = time
-  //     })
-  //     this.setState({recSessions: res.data})
-  //   })
-  // }
-
 colFormatter(cell, row) {
     return (
       <Link to={`${this.props.match.url}/${row.id}`}>
