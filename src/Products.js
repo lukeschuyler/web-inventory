@@ -16,6 +16,7 @@ class Products extends Component {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/products`)
     .then(res => {
       this.setState({products: res.data})
+      console.log(res.data)
     })
   }
 

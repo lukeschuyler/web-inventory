@@ -24,7 +24,8 @@ class ProductSearch extends Component {
     })
   }
 
-  addProduct() {
+  addProduct(p) {
+    const data = { description: p.ItemAttributes[0].Feature[1]}
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
     .then(res => {
       console.log(res)
@@ -53,9 +54,9 @@ class ProductSearch extends Component {
                   image={p.ImageSets[0].ImageSet[0].MediumImage[0].URL[0]}
                   name={p.ItemAttributes[0].Title[0]}
                   code={p.ItemAttributes[0].UPC[0]}
-                  description={p.description}
+                  description={p.ItemAttributes[0].Feature[1]}
                   id={p.id}
-                  addProduct={this.addProduct}
+                  addProduct={ () => { this.addProduct(p) } }
                   showModal={ () => { this.setState({ show: true }) } }
                   closeModal={ () => { this.setState({ show: false }) }}
                   show={this.state.show}
