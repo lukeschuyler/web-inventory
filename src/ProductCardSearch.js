@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap'
 
-const ProductCardSearch = ({ name, show, price, image, code, description, addProduct, showModal, closeModal }) =>
+const ProductCardSearch = ({ name, show, price, image, code, description, container, addProduct, showModal, closeModal }) =>
  (
     <div className="col-xs-4 product-card">
        <div className="product-image-container-search"><img alt="" className="product-image-search rounded" src={image} /></div>
@@ -15,7 +15,7 @@ const ProductCardSearch = ({ name, show, price, image, code, description, addPro
           <Modal
             show={show}
             onHide={closeModal}
-            container={this}
+            container={container}
             aria-labelledby="contained-modal-title"
           >
           <Modal.Body>

@@ -19,12 +19,16 @@ class ProductSearch extends Component {
     e.preventDefault()
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/search`, { query: this.state.query })
     .then(res => {
+      console.log(res.data)
       this.setState({products: res.data, loading: false})
     })
   }
 
   addProduct() {
-
+    axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
+    .then(res => {
+      console.log(res)
+    })
   }
 
   render() {
@@ -52,9 +56,10 @@ class ProductSearch extends Component {
                   description={p.description}
                   id={p.id}
                   addProduct={this.addProduct}
-                  showModal={ () => { this.setState({show: true}) } }
-                  closeModal={() => { this.setState({ show: false }) }}
+                  showModal={ () => { this.setState({ show: true }) } }
+                  closeModal={ () => { this.setState({ show: false }) }}
                   show={this.state.show}
+                  container={this}
                 />
               )}
             </div>

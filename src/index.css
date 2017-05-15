@@ -18,6 +18,7 @@ body {
 .product-image-search {
   width: auto;
   height: 100px;
+  max-width: 100px;
 }
 
 .product-image-container-search {

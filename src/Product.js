@@ -59,20 +59,20 @@ class Product extends Component {
           <span>{this.state.code}</span>
           <div className="product-description"><p>{this.state.description}</p></div>
           <div className="modal-container">
-          <Modal
-            show={this.state.show}
-            onHide={close}
-            container={this}
-            aria-labelledby="contained-modal-title"
-          >
-          <Modal.Body>
-            Are You sure you want to remove {this.state.name} from your product list?
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={close}>Close</Button>
-            <Button onClick={() => { this.delete(this.state.id) }}>Delete</Button>
-          </Modal.Footer>
-        </Modal>
+            <Modal
+              show={this.state.show}
+              onHide={close}
+              container={this}
+              aria-labelledby="contained-modal-title"
+            >
+            <Modal.Body>
+              Are You sure you want to remove {this.state.name} from your product list?
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={close}>Close</Button>
+              <Button onClick={() => { this.delete(this.state.id) }}>Delete</Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </div>
     );   
