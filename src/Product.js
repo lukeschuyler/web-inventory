@@ -31,7 +31,7 @@ class Product extends Component {
   delete(id) {
     axios.delete(`https://inventory-manager-ls.herokuapp.com/api/v1/products/${id}`)
     .then(res => {
-      console.log(res)
+      this.props.deleteItem()
       this.setState({show: false})
     })
   }
@@ -47,11 +47,10 @@ class Product extends Component {
   }
 
   render() {
-    let close = () => this.setState({ show: false});
+  let close = () => this.setState({ show: false});
    if(!this.state.editing) {
     return (
       <div className="product-card col-xs-4">
-        <div className="modal-container">
           <div className="product-image-container"><img alt="" className="product-image rounded" src={this.state.image}/></div>
             <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
             <icon onClick={() => { this.showModal(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>
@@ -59,7 +58,8 @@ class Product extends Component {
           <span>${this.state.price}</span><br />
           <span>{this.state.code}</span>
           <div className="product-description"><p>{this.state.description}</p></div>
-        </div>
+
+          <div className="modal-container">
           <Modal
             show={this.state.show}
             onHide={close}
@@ -67,13 +67,14 @@ class Product extends Component {
             aria-labelledby="contained-modal-title"
           >
           <Modal.Body>
-            Are You sure you want to remove this {this.state.name} from your product list?
+            Are You sure you want to remove {this.state.name} from your product list?
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={close}>Close</Button>
             <Button onClick={() => { this.delete(this.state.id) }}>Delete</Button>
           </Modal.Footer>
         </Modal>
+        </div>
       </div>
     );   
    } else { 
