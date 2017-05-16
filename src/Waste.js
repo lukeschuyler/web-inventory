@@ -46,7 +46,7 @@ class Waste extends Component {
           <div className="container">
             <h1>Waste Sessions</h1>
             <hr />
-            <BootstrapTable data={wasteSessions} striped={ true } hover={ true } >
+            <BootstrapTable exportCSV data={wasteSessions} striped={ true } hover={ true } >
                 <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
                 <TableHeaderColumn dataFormat={ this.dateFormatter } dataSort={true} filter={ { type: 'RegexFilter' } } dataField='date'>Session Date</TableHeaderColumn>
                 <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>

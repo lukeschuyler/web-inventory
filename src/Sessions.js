@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Navbar, NavItem, MenuItem, NavDropdown, Nav, Breadcrumb } from 'react-bootstrap'
 import { Route, Link } from 'react-router-dom'
 import Sales from './Sales.js'
 import Receiving from './Receiving.js'
@@ -30,7 +29,6 @@ class Sessions extends Component {
         recSessions: res.data.rec, 
         loading: false
       })
-      console.log(this.state, 'state')
     })
   }
 
