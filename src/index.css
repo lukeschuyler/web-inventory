@@ -54,6 +54,11 @@ body {
   margin-left: 40%;
 }
 
+.add-btn {
+  margin-left: 80%
+}
+
+
 .product-description-edit {
   width: 250px;
   height: 200px;

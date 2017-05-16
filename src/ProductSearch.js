@@ -44,7 +44,7 @@ class ProductSearch extends Component {
               <ProductCardSearch 
                 key={p.ASIN}
                 price={p.price}
-                image={p.image}
+                image={p.image === 'No Image Available' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png' : p.image}
                 name={p.name}
                 code={p.UPC}
                 description={p.description ? p.description : null}

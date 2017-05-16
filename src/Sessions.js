@@ -42,6 +42,7 @@ class Sessions extends Component {
             <Link to={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></Link>
             <Link to={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></Link>
           </div>
+          <hr />
           <Route path={match} render={(props) => (
             <div>
             { this.props.children }
