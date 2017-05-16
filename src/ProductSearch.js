@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import ProductCardSearch from './ProductCardSearch.js'
-import { DropdownButton, MenuItem } from 'react-bootstrap'
 
 
 class ProductSearch extends Component {
@@ -11,7 +10,7 @@ class ProductSearch extends Component {
       query: '',
       products: [],
       notFound: false,
-      searchType: 'name'
+      searchType: 'Product Name'
     }
   }
 
@@ -30,17 +29,12 @@ class ProductSearch extends Component {
 
   render() {
     let notFound = this.state.notFound ? <h3>Item Not Found</h3> : ''
-    let title = this.state.searchType
     return (
       <div>
         <div className="container">
           <form>
             <input value={this.state.query} onChange={(e) => { this.setState({query: e.target.value}) }  }  placeholder="Search" className="amazon-search form-control"/>
             <button onClick={(e) => { this.search(e) } } className="btn btn-primary">Search</button>
-            <DropdownButton title={title}>
-              <MenuItem onSelect={() => { this.setState({searchType: 'name'}) }} eventKey="1">Name</MenuItem>
-              <MenuItem onSelect={() => { this.setState({searchType: 'code'}) }} eventKey="2">UPC Code</MenuItem>
-            </DropdownButton>
           </form>
         </div>
         <div className="container product-list-container">
