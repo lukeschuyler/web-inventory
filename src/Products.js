@@ -3,6 +3,7 @@ import axios from 'axios'
 import Product from './Product.js'
 import { toast } from 'react-toastify';
 
+const DeleteToast = ({message}) => <span className="t-container">{message}</span>
 
 class Products extends Component {
   constructor(props) {
@@ -24,13 +25,12 @@ class Products extends Component {
     let newProducts = this.state.products
     newProducts.splice(i, 1)
     this.setState({ products: newProducts })
-    toast(<div>Hello</div>);
+    toast(<DeleteToast message='Product Removed Successfully'/>);
   }
 
   render() {
     return (
       <div className="container product-list-container">
-
         <h1>Product List</h1>
         <hr />
         <div className="row">

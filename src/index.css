@@ -132,6 +132,18 @@ textarea {
   border-radius: 100%;
 }
 
+.t-container {
+  color: black;
+  margin: 0;
+  font-size: 20px;
+}
+
+.t-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*.darken {
     display: inline-block;
     background: black;
