@@ -26,7 +26,7 @@ class WasteSession extends Component {
     let products = this.state.wasteSession
     return (
       <div className="container">
-        <BootstrapTable data={products} striped={ true } hover={ true } condensed={ true } multiColumnSearch={ true }>
+        <BootstrapTable className="table" exportCSV data={products} striped={ true } hover={ true } condensed={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Product ID</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } }  dataField='name'>Product Name</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='upc_code'>UPC Code</TableHeaderColumn>

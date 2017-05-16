@@ -9,26 +9,24 @@ class ProductSearch extends Component {
     this.state = {
       query: '',
       products: [],
-      loading: false,
       notFound: false
     }
   }
 
   search(e) {
-    this.setState({loading: true})
     e.preventDefault()
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/search`, { query: this.state.query })
     .then(res => {
-      console.log(res.data)
-      this.setState({ products: res.data, loading: false, notFound: false })
+      console.log(res)
+      this.setState({ products: res.data, notFound: false })
     })
     .catch(err => {
-      this.setState({notFound:true})
+      console.log(err.message)
+      this.setState({notFound:true, products: []})
     })
   }
 
   render() {
-    let loading = this.state.loading
     let notFound = this.state.notFound ? <h3>Item Not Found</h3> : ''
     return (
       <div>
@@ -46,10 +44,10 @@ class ProductSearch extends Component {
               <ProductCardSearch 
                 key={p.ASIN}
                 price={p.price}
-                image={p.image}
+                image={p.image === 'No Image Available' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png' : p.image}
                 name={p.name}
                 code={p.UPC}
-                description={p.description}
+                description={p.description ? p.description : null}
               />
             )}
           </div>

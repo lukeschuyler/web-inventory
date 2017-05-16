@@ -47,10 +47,10 @@ class ProductCardSearch extends Component {
       <div className="col-xs-4 product-card">
          <div className="product-image-container-search"><img alt="" className="product-image-search rounded" src={this.state.image} /></div>
         <icon onClick={this.showModal} 
-          className="btn btn-sm glyphicon edit-btn glyphicon-plus"></icon>
+          className="btn btn-sm glyphicon add-btn glyphicon-plus"></icon>
         <h4>{this.state.name}</h4>
-        <span>List Price: {this.state.price}</span><br />
-        <span>UPC: {this.state.code}</span>
+        <span><bold>List</bold> Price: ${this.state.price}</span><br />
+        <span><bold>UPC:</bold> {this.state.code}</span>
         <div className="product-description"><p>{this.state.description}</p></div>
         <div className="modal-container">
             <Modal

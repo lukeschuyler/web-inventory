@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavItem, MenuItem, NavDropdown, Nav, Breadcrumb } from 'react-bootstrap'
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import Sales from './Sales.js'
 import Receiving from './Receiving.js'
 import Inventory from './Inventory'
@@ -30,7 +29,6 @@ class Sessions extends Component {
         recSessions: res.data.rec, 
         loading: false
       })
-      console.log(this.state)
     })
   }
 
@@ -38,12 +36,13 @@ class Sessions extends Component {
     let match = this.props.match.url
       return (
         <div>
-          <Breadcrumb className="container session-navbar">
-            <Breadcrumb.Item eventKey={1} href={`${match}/waste`}><div className="darken nav-item waste-nav-item">Waste</div></Breadcrumb.Item>
-            <Breadcrumb.Item eventKey={2} href={`${match}/inventory`}><div className="darken nav-item inv-nav-item">Inventory</div></Breadcrumb.Item>
-            <Breadcrumb.Item eventKey={2} href={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></Breadcrumb.Item>
-            <Breadcrumb.Item eventKey={2} href={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></Breadcrumb.Item>
-          </Breadcrumb>
+          <div className="container session-navbar">
+            <Link to={`${match}/waste`}><div className="darken nav-item waste-nav-item">Waste</div></Link>
+            <Link to={`${match}/inventory`}><div className="darken nav-item inv-nav-item">Inventory</div></Link>
+            <Link to={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></Link>
+            <Link to={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></Link>
+          </div>
+          <hr />
           <Route path={match} render={(props) => (
             <div>
             { this.props.children }

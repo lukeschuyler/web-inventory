@@ -42,11 +42,11 @@ colFormatter(cell, row) {
     <div>
       <Route exact path={this.props.match.url} render={(props) => (
       <div className="container">
-        <h1>Sales Sessions</h1>
+        <h1>Sales</h1>
         <hr />
-        <BootstrapTable data={salesSessions} striped={ true } hover={ true } multiColumnSearch={ true }>
+        <BootstrapTable className="table" exportCSV data={salesSessions} striped={ true } hover={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
-            <TableHeaderColumn dataSort={true} dataFormat={ this.dateFormatter } filter={ { type: 'DateFilter' } } dataField='date'>Session Date</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataFormat={ this.dateFormatter } filter={ { type: 'RegexFilter' } } dataField='date'>Session Date</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } } dataField='username'>User</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataFormat={ this.colFormatter }>View Session</TableHeaderColumn>
         </BootstrapTable>
