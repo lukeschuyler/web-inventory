@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, NavLink } from 'react-router-dom'
 import Sales from './Sales.js'
 import Receiving from './Receiving.js'
 import Inventory from './Inventory'
@@ -38,10 +38,10 @@ class Sessions extends Component {
       return (
         <div>
           <div className="container session-navbar">
-            <Link className={match ? 'active-link' : ''} to={`${match}/waste`}><div className="darken nav-item waste-nav-item">Waste</div></Link>
-            <Link className={match ? 'active-link' : ''} to={`${match}/inventory`}><div className="darken nav-item inv-nav-item">Inventory</div></Link>
-            <Link className={match ? 'active-link' : ''} to={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></Link>
-            <Link className={match ? 'active-link' : ''} to={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></Link>
+            <NavLink activeClassName='active-link' to={`${match}/waste`}><div className="darken nav-item waste-nav-item">Waste</div></NavLink>
+            <NavLink activeClassName='active-link' to={`${match}/inventory`}><div className="darken nav-item inv-nav-item">Inventory</div></NavLink>
+            <NavLink activeClassName='active-link' to={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></NavLink>
+            <NavLink activeClassName='active-link' to={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></NavLink>
           </div>
           <hr />
           <Route path={match} render={(props) => (
