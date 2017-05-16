@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Product from './Product.js'
+import { toast } from 'react-toastify';
 
+const DeleteToast = ({message}) => <span className="t-container">{message}</span>
 
 class Products extends Component {
   constructor(props) {
@@ -16,7 +18,6 @@ class Products extends Component {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/products`)
     .then(res => {
       this.setState({products: res.data})
-      console.log(res.data)
     })
   }
 
@@ -24,6 +25,7 @@ class Products extends Component {
     let newProducts = this.state.products
     newProducts.splice(i, 1)
     this.setState({ products: newProducts })
+    toast(<DeleteToast message='Product Removed Successfully'/>);
   }
 
   render() {
