@@ -38,7 +38,7 @@ class Products extends Component {
               price={p.price}
               image={p.image}
               name={p.name}
-              code={p.upc_code}
+              upc_code={p.upc_code}
               description={p.description}
               id={p.id}
               deleteItem={() => { this.deleteItem(i) } }

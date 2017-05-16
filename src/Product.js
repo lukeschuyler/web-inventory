@@ -56,7 +56,7 @@ class Product extends Component {
             <icon onClick={() => { this.showModal(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>
           <h4>{this.state.name}</h4>
           <span>${this.state.price}</span><br />
-          <span>{this.state.code}</span>
+          <span>UPC Code: {this.state.code}</span>
           <div className="product-description"><p>{this.state.description}</p></div>
           <div className="modal-container">
             <Modal

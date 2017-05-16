@@ -9,7 +9,8 @@ class ProductSearch extends Component {
     this.state = {
       query: '',
       products: [],
-      notFound: false
+      notFound: false,
+      searchType: 'Product Name'
     }
   }
 
