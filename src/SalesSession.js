@@ -27,7 +27,7 @@ class SalesSession extends Component {
     let products = this.state.salesSession
     return (
       <div className="container">
-        <BootstrapTable exportCSV data={products} striped={ true } hover={ true } condensed={ true } multiColumnSearch={ true }>
+        <BootstrapTable className="table" exportCSV data={products} striped={ true } hover={ true } condensed={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Product ID</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 1000 } }  dataField='name'>Product Name</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataField='upc_code'>UPC Code</TableHeaderColumn>

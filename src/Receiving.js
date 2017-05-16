@@ -43,7 +43,7 @@ colFormatter(cell, row) {
       <div className="container">
         <h1>Receiving Sessions</h1>
         <hr />
-        <BootstrapTable exportCSV data={recSessions} striped={ true } hover={ true } multiColumnSearch={ true }>
+        <BootstrapTable className="table" exportCSV data={recSessions} striped={ true } hover={ true } multiColumnSearch={ true }>
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataFormat={ this.dateFormatter } filter={ { type: 'RegexFilter' } }  dataField='date'>Session Date</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } }  dataField='username'>User</TableHeaderColumn>
