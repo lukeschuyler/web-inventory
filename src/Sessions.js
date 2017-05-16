@@ -37,10 +37,10 @@ class Sessions extends Component {
       return (
         <div>
           <div className="container session-navbar">
-            <Link to={`${match}/waste`}><div className="darken nav-item waste-nav-item">Waste</div></Link>
-            <Link to={`${match}/inventory`}><div className="darken nav-item inv-nav-item">Inventory</div></Link>
-            <Link to={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></Link>
-            <Link to={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></Link>
+            <Link activeclassName="active-link" to={`${match}/waste`}><div className="darken nav-item waste-nav-item">Waste</div></Link>
+            <Link activeclassName="active-link" to={`${match}/inventory`}><div className="darken nav-item inv-nav-item">Inventory</div></Link>
+            <Link activeclassName="active-link" to={`${match}/sales`}><div className="darken nav-item sales-nav-item">Sales</div></Link>
+            <Link activeclassName="active-link" to={`${match}/receiving`}><div className="darken nav-item rec-nav-item">Receiving</div></Link>
           </div>
           <hr />
           <Route path={match} render={(props) => (
