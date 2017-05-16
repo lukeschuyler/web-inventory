@@ -11,6 +11,7 @@ body {
    /*background-color: rgb(253, 227, 167); */
 }
 
+
 .product-image {
   width: 100px;
   height: auto;
@@ -158,6 +159,11 @@ textarea {
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
     border-radius: 100%;
+}
+
+.dark:hover {
+  background-color: black;
+  border-radius: 100%;
 }
 
 .darken:hover  {
