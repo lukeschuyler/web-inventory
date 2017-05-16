@@ -4,7 +4,7 @@ import Sales from './Sales.js'
 import Receiving from './Receiving.js'
 import Inventory from './Inventory'
 import Waste from './Waste'
-import SessionLink from './SessionLink.js'
+// import SessionLink from './SessionLink.js'
 import axios from 'axios'
 
 

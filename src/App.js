@@ -3,11 +3,14 @@
 import React, { Component } from 'react';
 import { Navbar, NavItem, MenuItem, NavDropdown, Nav } from 'react-bootstrap'
 import Headroom from 'react-headroom'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 class App extends Component {
   render(props) {
     return (
       <div>
+      <ToastContainer />
           <Navbar className="app-nav">
             <Navbar.Header>
               <Navbar.Brand>

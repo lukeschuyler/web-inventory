@@ -13,7 +13,9 @@
     "react-bootstrap-table": "^2.10.0-beta.1",
     "react-dom": "^15.5.4",
     "react-headroom": "^2.1.5",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "react-toastify": "^1.5.0",
+    "react-toastr": "^2.8.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

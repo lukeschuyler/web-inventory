@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Product from './Product.js'
+import { toast } from 'react-toastify';
 
 
 class Products extends Component {
@@ -16,7 +17,6 @@ class Products extends Component {
     axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/products`)
     .then(res => {
       this.setState({products: res.data})
-      console.log(res.data)
     })
   }
 
@@ -24,11 +24,13 @@ class Products extends Component {
     let newProducts = this.state.products
     newProducts.splice(i, 1)
     this.setState({ products: newProducts })
+    toast(<div>Hello</div>);
   }
 
   render() {
     return (
       <div className="container product-list-container">
+
         <h1>Product List</h1>
         <hr />
         <div className="row">

@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom'
 
 const SessionLink = ({ label, to }) => (
-  <Route path={to} children={({ match }) => (
-    <div className={match ? 'active' : ''}>
-      {match ? '> ' : ''}<Link to={to}>{label}</Link>
+  <Route path={to} children={({ match_two }) => (
+    <div className={match_two ? 'active-link' : ''}>
+      <Link to={to}>{label}</Link>
     </div>
   )}/>
 )
