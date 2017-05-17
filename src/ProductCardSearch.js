@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap'
 import axios from 'axios'
+import { toast } from 'react-toastify';
+
+const AddToast = ({message}) => <span className="t-container">{message}</span>
+
 
 class ProductCardSearch extends Component {
   constructor(props) {
@@ -39,7 +43,15 @@ class ProductCardSearch extends Component {
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
     .then(res => {
       console.log(res)
-      this.setState({show: false})
+      if (res.data.constraint) {
+       if (res.data.constraint === "products_upc_code_unique") {
+          this.setState({show: false})
+          toast(<AddToast message='You already have that product!'/>);
+       }
+      } else {
+        this.setState({show: false})
+        toast(<AddToast message='Product Added Successfuly'/>);
+      }
     })
   }
 
