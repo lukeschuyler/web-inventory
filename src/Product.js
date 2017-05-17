@@ -54,10 +54,13 @@ class Product extends Component {
           <div className="product-image-container"><img alt="" className="product-image rounded" src={this.state.image}/></div>
             <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
             <icon onClick={() => { this.showModal(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>
-          <h4>{this.state.name}</h4>
-          <span>${this.state.price}</span><br />
-          <span>UPC Code: {this.state.code}</span>
-          <div className="product-description"><p>{this.state.description}</p></div>
+         <hr />
+          <div className="half-card">
+            <h4>{this.state.name}</h4>
+            <span>${this.state.price}</span><br />
+            <span>UPC Code: {this.state.code}</span>
+            <div className="product-description"><p>{this.state.description}</p></div>
+          </div>
           <div className="modal-container">
             <Modal
               show={this.state.show}

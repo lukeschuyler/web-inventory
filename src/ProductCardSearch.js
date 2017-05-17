@@ -58,7 +58,7 @@ class ProductCardSearch extends Component {
   render() {
     return  (
       <div className="col-xs-4 product-card">
-         <div className="product-image-container-search"><img alt="" className="product-image-search rounded" src={this.state.image} /></div>
+         <div className="product-image-container-search"><img alt="" className="product-image-search" src={this.state.image} /></div>
         <icon onClick={this.showModal} 
           className="btn btn-sm glyphicon add-btn glyphicon-plus"></icon>
         <h4>{this.state.name}</h4>
