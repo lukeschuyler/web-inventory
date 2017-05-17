@@ -80,7 +80,7 @@ class ProductCardSearch extends Component {
               <Button onClick={this.addProduct}>Add</Button>
             </Modal.Footer>
           </Modal>
-        s</div>
+        </div>
       </div>
     );
   }
