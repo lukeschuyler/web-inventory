@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div>
       <ToastContainer hideProgressBar={true} autoClose={2000} className="t-main" position="bottom-center"/>
-          <Navbar className="app-nav">
+          <Navbar inverse className="app-nav">
             <Navbar.Header>
               <Navbar.Brand>
                 <a href="/">Simply Managed</a>
