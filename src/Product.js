@@ -29,11 +29,11 @@ class Product extends Component {
   }
 
   delete(id) {
-    // axios.delete(`https://inventory-manager-ls.herokuapp.com/api/v1/products/${id}`)
-    // .then(res => {
+    axios.delete(`https://inventory-manager-ls.herokuapp.com/api/v1/products/${id}`)
+    .then(res => {
       this.props.deleteItem()
-    //   this.setState({show: false})
-    // })
+      this.setState({show: false})
+    })
   }
 
   update(e, id, name, price, description) {

@@ -34,10 +34,11 @@ class ProductCardSearch extends Component {
       name: this.state.name,
       popularity: 7,
       price: this.state.price.slice(1),
-      upc_code: this.state.code.toString()
+      upc_code: this.state.code
     }
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
     .then(res => {
+      console.log(res)
       this.setState({show: false})
     })
   }
