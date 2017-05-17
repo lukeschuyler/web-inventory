@@ -33,7 +33,7 @@ class Products extends Component {
       <div className="container product-list-container">
         <h1>Product List</h1>
         <hr />
-        <div className="row">
+        <div className="search-container row">
           {this.state.products.map((p, i) => 
             <Product 
               key={p.id}

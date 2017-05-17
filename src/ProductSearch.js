@@ -40,7 +40,7 @@ class ProductSearch extends Component {
         <div className="container product-list-container">
           <hr />
           {notFound}
-          <div className="row">
+          <div className="search-container row">
             {this.state.products.map((p, i) => 
               <ProductCardSearch 
                 key={p.ASIN}

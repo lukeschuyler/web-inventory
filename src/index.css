@@ -5,6 +5,7 @@ body {
   font-family: 'Cambay', sans-serif;
   font-size: 160%;
   padding-bottom: 10%;
+   /*background-color: rgb(253, 227, 167); */
 }
 
 .app-nav {
@@ -41,17 +42,19 @@ body {
 }
 
 .product-image-container {
-  height: 120px;
-  width: 120px;
+/*  height: 120px;
+  width: 120px;*/
   display: flex;
   align-items: center; 
+  justify-content: center;
 }
 
 .product-image-container-search {
-  height: 120px;
-  width: 120px;
+/*  height: 120px;
+  width: 120px;*/
   display: flex;
   align-items: center; 
+  justify-content: center;
 }
 
 .product-card {
@@ -61,7 +64,8 @@ body {
   width: 230px;
   border-radius: 10px;
   padding: 2%;
-  box-shadow: 0px 10px 10px rgba(0,0,0, .3);
+  box-shadow: 0px 10px 10px rgba(0,0,0, .3),
+              0px -5px 10px rgba(0,0,0,.3);
   overflow-y: scroll;
 }
 
@@ -72,13 +76,18 @@ body {
 }
 
 .product-description {
-  height: 200px;
+  height: auto;
   margin-top: 5%;
 }
 
+.icon-cont {
+  
+}
+
+/*
 .edit-btn {
   margin-left: 40%;
-}
+}*/
 
 .add-btn {
   margin-left: 80%
@@ -206,6 +215,13 @@ textarea {
   width: 30%;
   display: inline;
   margin-right: 3%;
+}
+
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .table {
