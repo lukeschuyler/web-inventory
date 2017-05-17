@@ -51,9 +51,9 @@ class Product extends Component {
    if(!this.state.editing) {
     return (
       <div className="product-card col-xs-4">
-          <div className="product-image-container"><img alt="" className="product-image rounded" src={this.state.image}/></div>
-            <icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
-            <icon onClick={() => { this.showModal(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon>
+          <div className="product-image-container"><img alt="" className="product-image" src={this.state.image}/></div>
+            <div className="icon-cont"><icon onClick={this.edit} className="btn glyphicon edit-btn glyphicon-edit"></icon>
+            <icon onClick={() => { this.showModal(this.state.id) } } className="btn glyphicon delete-btn glyphicon-remove"></icon></div>
          <hr />
           <div className="half-card">
             <h4>{this.state.name}</h4>
