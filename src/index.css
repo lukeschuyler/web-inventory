@@ -31,12 +31,13 @@ body {
 .product-image {
   width: auto;
   height: 100px;
+  max-width: 220px;
 }
 
 .product-image-search {
   width: auto;
   height: 100px;
-  max-width: 100px;
+  max-width: 220px;
 }
 
 .product-image-container {
@@ -167,7 +168,7 @@ textarea {
 }
 
 .dark:hover {
-  background-color: rgba(0,0,0, .7);
+  background-color: rgba(0,0,0, .5);
   border-radius: 100%;
 }
 
