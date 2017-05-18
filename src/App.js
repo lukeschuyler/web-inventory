@@ -10,7 +10,7 @@ class App extends Component {
   render(props) {
     return (
       <div>
-      <ToastContainer hideProgressBar={true} autoClose={2000} className="t-main" position="bottom-center"/>
+      <ToastContainer hideProgressBar={true} autoClose={2000} className="t-main" />
           <Navbar inverse className="app-nav">
             <Navbar.Header>
               <Navbar.Brand>

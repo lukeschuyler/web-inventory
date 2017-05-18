@@ -91,6 +91,7 @@ class Product extends Component {
         changePrice={(e) => { this.setState({price: e.target.value}) }}
         changeDesc={(e) => { this.setState({description: e.target.value}) }}
         changeName={(e) => { this.setState({name: e.target.value}) }}
+        changeName={(e) => { this.setState({code: e.target.value}) }}
       />
     )
    }
