@@ -33,7 +33,6 @@ class Inventory extends Component {
     return `${('0' + (cell.getMonth() + 1)).slice(-2)}/${('0' + cell.getDate()).slice(-2)}/${cell.getFullYear()}`;
   }
 
-
   render() {
     let invSessions = this.state.invSessions
     return (
