@@ -1,6 +1,6 @@
 # Simply Managed Web
 
-## Links to Front End Repos:
+## Links to Other Repos:
   [API](https://github.com/lukeschuyler/inventory-mobile-API)
   
   [Mobile](https://github.com/lukeschuyler/mobile-inventory)
