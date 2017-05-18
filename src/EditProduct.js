@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const EditProduct = ({ name, price, image, code, description, done, changePrice, changeName, changeDesc }) =>
+const EditProduct = ({ name, price, image, code, description, done, changePrice, changeName, changeDesc, changeCode }) =>
    (
       <div className="col-xs-4 product-card">
         <div className="product-image-container"><img alt="" className="product-image rounded" src={image} /></div>
@@ -18,7 +18,12 @@ const EditProduct = ({ name, price, image, code, description, done, changePrice,
                 onChange={changePrice} 
                 type="text" value={price} />
         </span>
-        <span>{code}</span>
+        <span><input
+                onSubmit={done} 
+                className="form-control edit-p-input" 
+                onChange={changeCode} 
+                type="text" value={code}/>
+        </span>
         <textarea onSubmit={done} onChange={changeDesc} value={description} className="product-description-edit"></textarea>
       </div>
     );
