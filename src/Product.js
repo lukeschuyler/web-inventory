@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import EditProduct from './EditProduct.js'
 import { Modal, Button } from 'react-bootstrap'
+import { toast } from 'react-toastify';
+
+const EditToast = ({message}) => <span className="t-container">{message}</span>
 
 class Product extends Component {
   constructor(props) {
@@ -36,12 +39,16 @@ class Product extends Component {
     })
   }
 
-  update(e, id, name, price, description) {
+  update(e, id, name, price, description, upc_code) {
     e.preventDefault()
-    const data = { id, name, price, description }
+    const data = { id, name, price, description, upc_code }
     axios.patch(`https://inventory-manager-ls.herokuapp.com/api/v1/products`, data)
     .then(res => {
-      console.log(res)
+      toast(<EditToast message='Product Updated'/>);
+      this.setState({editing: false})
+    })
+    .catch(res => {
+      toast(<EditToast message='Product Not Updated'/>);
       this.setState({editing: false})
     })
   }
@@ -87,11 +94,11 @@ class Product extends Component {
         image={this.state.image}
         code={this.state.code}
         description={this.state.description}
-        done={ (e) => { this.update(e, this.state.id, this.state.name, this.state.price, this.state.description ) } }
+        done={ (e) => { this.update(e, this.state.id, this.state.name, this.state.price, this.state.description, this.state.code ) } }
         changePrice={(e) => { this.setState({price: e.target.value}) }}
         changeDesc={(e) => { this.setState({description: e.target.value}) }}
         changeName={(e) => { this.setState({name: e.target.value}) }}
-        changeName={(e) => { this.setState({code: e.target.value}) }}
+        changeCode={(e) => { this.setState({code: e.target.value}) }}
       />
     )
    }
