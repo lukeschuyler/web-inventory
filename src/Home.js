@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+
   render() {
     return (
       <div>
@@ -11,15 +20,15 @@ class Home extends Component {
         </div>
         <form className="container">
           <div className="form-group row">
-            <label for="example-text-input" className="col-form-label">Email</label>
+            <label for="example-text-input" className="col-xs-offset-2 col-xs-1 col-form-label">Email</label>
             <div className="col-xs-6">
-              <input className="form-control" type="text" value="Artisanal kale" id="example-text-input" />
+              <input className="form-control" type="email" value={this.state.email} id="example-text-input" />
             </div>
           </div>
           <div className="form-group row">
-            <label for="example-search-input" className="col-form-label">Password</label>
+            <label for="example-search-input" className="col-xs-offset-2 col-xs-1 col-form-label">Password</label>
             <div className="col-xs-6">
-              <input className="form-control" type="search" value="How do I shoot web" id="example-search-input" />
+              <input className="form-control" type="password" value={this.state.Password} id="example-search-input" />
             </div>
           </div>
         </form>
