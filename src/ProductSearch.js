@@ -18,11 +18,9 @@ class ProductSearch extends Component {
     e.preventDefault()
     axios.post(`https://inventory-manager-ls.herokuapp.com/api/v1/search`, { query: this.state.query })
     .then(res => {
-      console.log(res)
       this.setState({ products: res.data, notFound: false })
     })
     .catch(err => {
-      console.log(err.message)
       this.setState({notFound:true, products: []})
     })
   }
