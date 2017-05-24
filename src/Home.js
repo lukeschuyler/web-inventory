@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
+import Login from './Login'
+import Register from './Register'
 
 class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      login: true,
+      register: false
     }
   }
 
   render() {
+    // let auth = this.state.login ? <Login />
     return (
       <div>
         <div className="home-container container">
