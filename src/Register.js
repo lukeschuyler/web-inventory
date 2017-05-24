@@ -11,7 +11,8 @@ class Register extends Component {
     }
   }
 
-  register() {
+  register(e) {
+    e.preventDefault()
     console.log('hey')
   }
 
@@ -25,19 +26,19 @@ class Register extends Component {
         </div>
         <form onSubmit={this.register} className="container">
           <div className="form-group row">
-            <label for="example-text-input" className="col-xs-offset-4 col-xs-1 col-form-label">Email</label>
+            <label htmlFor="example-text-input" className="col-xs-offset-4 col-xs-1 col-form-label">Email</label>
             <div className="col-xs-3">
               <input onChange={(e) => { this.setState({email: e.target.value}) }} className="form-control" type="email" value={this.state.email} id="example-text-input" />
             </div>
           </div>
           <div className="form-group row">
-            <label for="example-search-input" className="col-xs-offset-4 col-xs-1 col-form-label">Password</label>
+            <label htmlFor="example-search-input" className="col-xs-offset-4 col-xs-1 col-form-label">Password</label>
             <div className="col-xs-3">
               <input onChange={(e) => { this.setState({password: e.target.value}) }} className="form-control" type="password" value={this.state.password} id="example-search-input" />
             </div>
           </div>
           <div className="form-group row">
-            <label for="example-search-input" className="col-xs-offset-4 col-xs-1 col-form-label">Confirm Password</label>
+            <label htmlFor="example-search-input" className="col-xs-offset-4 col-xs-1 col-form-label">Confirm Password</label>
             <div className="col-xs-3">
               <input onChange={(e) => { this.setState({passCheck: e.target.value}) }} className="form-control" type="password" value={this.state.passCheck} id="example-search-input" />
             </div>
