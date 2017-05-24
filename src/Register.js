@@ -1,4 +1,6 @@
-import React, { Component, Link } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 
 class Register extends Component {
   constructor(props) {
@@ -41,7 +43,7 @@ class Register extends Component {
             </div>
           </div>
         <input className="btn btn-success" type="submit" value="Register"/>
-        <Link to="/login" >Back to Login</Link>
+        <Link to={'/login'} >Back to Login</Link>
       </form>
     </div>
     );
