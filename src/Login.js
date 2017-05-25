@@ -39,8 +39,8 @@ class Login extends Component {
           </div>
           <div className="btn-container row">
             <div className="col-xs-3 col-xs-offset-5">
-              <input className="btn btn-warning" type="submit" value="Login"/>
-              <Link className="btn btn-success" to={'/register'} >Register</Link>
+              <input className="btn btn-login btn-warning" type="submit" value="Login"/>
+              <Link className="btn btn-login btn-success" to={'/register'} >Register</Link>
             </div>
           </div>
       </form>

@@ -46,8 +46,8 @@ class Register extends Component {
           </div>
           <div className="btn-container row">
             <div className="col-xs-3 col-xs-offset-5">
-              <input className="btn btn-warning" type="submit" value="Register"/>
-              <Link className="btn btn-success" to={'/login'} >Back to Login</Link>
+              <input className="btn btn-login btn-warning" type="submit" value="Register"/>
+              <Link className="btn btn-login btn-success" to={'/login'} >Back to Login</Link>
             </div>
           </div>
       </form>
