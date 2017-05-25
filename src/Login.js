@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = ({ email, password, onChangeEmail, onChangePass, login, goToReg }) => 
   (
@@ -15,8 +16,12 @@ const Login = ({ email, password, onChangeEmail, onChangePass, login, goToReg })
           <input onChange={onChangePass} className="form-control" type="password" value={password} id="example-search-input" />
         </div>
       </div>
-      <input className="btn btn-success" type="Login" value="Submit"/>
-      <button onClick={goToReg} className="btnn btn-warning">Register</button>
+      <div className="btn-container row">
+        <div className="col-xs-3 col-xs-offset-5">
+          <input className="btn btn-warning" type="submit" value="Login"/>
+          <Link className="btn btn-success" to={'/register'} >Register</Link>
+        </div>
+      </div>
     </form>
   )
 
