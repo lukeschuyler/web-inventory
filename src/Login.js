@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 
-class Register extends Component {
+class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,7 +11,7 @@ class Register extends Component {
     }
   }
 
-  register(e) {
+  login(e) {
     e.preventDefault()
     console.log('hey')
   }
@@ -24,7 +24,7 @@ class Register extends Component {
             <h1 className="logo">Simply Managed.</h1>
           </div>
         </div>
-        <form onSubmit={this.register} className="container log-form">
+        <form onSubmit={this.login} className="container log-form">
           <div className="form-group row">
             <label htmlFor="example-text-input" className="col-xs-offset-4 col-xs-1 col-form-label">Email</label>
             <div className="col-xs-3">
@@ -37,16 +37,10 @@ class Register extends Component {
               <input onChange={(e) => { this.setState({password: e.target.value}) }} className="form-control" type="password" value={this.state.password} id="example-search-input" />
             </div>
           </div>
-          <div className="form-group row">
-            <label htmlFor="example-search-input" className="col-xs-offset-4 col-xs-1 col-form-label">Confirm Password</label>
-            <div className="col-xs-3">
-              <input onChange={(e) => { this.setState({passCheck: e.target.value}) }} className="form-control" type="password" value={this.state.passCheck} id="example-search-input" />
-            </div>
-          </div>
           <div className="btn-container row">
             <div className="col-xs-3 col-xs-offset-5">
-              <input className="btn btn-warning" type="submit" value="Register"/>
-              <Link className="btn btn-success" to={'/login'} >Back to Login</Link>
+              <input className="btn btn-warning" type="submit" value="Login"/>
+              <Link className="btn btn-success" to={'/register'} >Register</Link>
             </div>
           </div>
       </form>
@@ -55,4 +49,4 @@ class Register extends Component {
   }
 }
 
-export default Register
+export default Login
