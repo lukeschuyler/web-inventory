@@ -7,7 +7,8 @@ class Register extends Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      passCheck: ''
     }
   }
 
@@ -24,7 +25,7 @@ class Register extends Component {
             <h1 className="logo">Simply Managed.</h1>
           </div>
         </div>
-        <form onSubmit={this.register} className="container">
+        <form onSubmit={this.register} className="container log-form">
           <div className="form-group row">
             <label htmlFor="example-text-input" className="col-xs-offset-4 col-xs-1 col-form-label">Email</label>
             <div className="col-xs-3">
