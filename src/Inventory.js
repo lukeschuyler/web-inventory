@@ -39,7 +39,7 @@ class Inventory extends Component {
     <div>
       <Route exact path={this.props.match.url} render={(props) => (
       <div className="container">
-        <BootstrapTable className="table" exportCSV data={invSessions} striped={ true } hover={ true } >
+        <BootstrapTable pagination className="table" exportCSV data={invSessions} striped={ true } hover={ true } >
             <TableHeaderColumn dataSort={true} width="100" isKey dataField='id'>Session ID</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} dataFormat={ this.dateFormatter } filter={ { type: 'RegexFilter' } } dataField='date'>Session Date</TableHeaderColumn>
             <TableHeaderColumn dataSort={true} filter={ { type: 'RegexFilter', delay: 200 } }  dataField='username'>User</TableHeaderColumn>
