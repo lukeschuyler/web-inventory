@@ -36,6 +36,7 @@ class Products extends Component {
         <div className="search-container row">
           {this.state.products.map((p, i) => 
             <Product 
+              current_qty={p.current_qty}
               key={p.id}
               price={p.price}
               image={p.image}

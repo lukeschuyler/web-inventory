@@ -17,7 +17,8 @@ class Product extends Component {
       description: this.props.description,
       id: this.props.id,
       editing: false,
-      show: false
+      show: false,
+      current_qty: this.props.current_qty
     }
     this.edit = this.edit.bind(this)
     this.delete = this.delete.bind(this)
