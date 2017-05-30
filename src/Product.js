@@ -65,6 +65,7 @@ class Product extends Component {
          <hr />
           <div className="half-card">
             <h4>{this.state.name}</h4>
+            <span>In Stock: {this.state.current_qty}</span><br />
             <span>${this.state.price}</span><br />
             <span>UPC Code: {this.state.code}</span>
             <div className="product-description"><p>{this.state.description}</p></div>
