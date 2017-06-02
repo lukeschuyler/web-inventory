@@ -5,11 +5,11 @@ body {
   font-family: 'Cambay', sans-serif;
   font-size: 160%;
   padding-bottom: 10%;
-   /*background-color: rgb(253, 227, 167); */
+   background-color: #0375b4; 
 }
 
 .app-nav {
-   /*background-color: rgb(253, 227, 167); */
+   background-color: #ffce00;; 
 }
 
 .log-form {
