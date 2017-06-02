@@ -31,7 +31,7 @@ class Products extends Component {
   render() {
     return (
       <div className="container product-list-container">
-        <h1>Product List</h1>
+        <h1 className="prod-header">Product List</h1>
         <div className="search-container row">
           {this.state.products.map((p, i) => 
             <Product 

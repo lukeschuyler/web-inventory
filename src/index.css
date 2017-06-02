@@ -121,6 +121,11 @@ textarea {
   border: 0px;
 }
 
+.prod-header {
+  text-align: center;
+
+}
+
 .session-navbar {
   /*background-color: white;*/
   display: flex;
@@ -241,4 +246,9 @@ textarea {
 }
 .btn-login { 
   margin: 5%;
+ }
+
+.react-bs-table-container {
+  background-color: white;
+  padding: 2%;
  }

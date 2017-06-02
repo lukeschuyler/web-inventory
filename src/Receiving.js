@@ -17,11 +17,11 @@ class Receiving extends Component {
     this.dateFormatter = this.dateFormatter.bind(this)
   }
 
-    componentWillUpdate(nextProps, nextState) {
-      nextState.recSessions = nextProps.sessions;  
-    }
+  componentWillUpdate(nextProps, nextState) {
+    nextState.recSessions = nextProps.sessions;  
+  }
 
-colFormatter(cell, row) {
+  colFormatter(cell, row) {
     return (
       <Link to={`${this.props.match.url}/${row.id}`}>
         View
