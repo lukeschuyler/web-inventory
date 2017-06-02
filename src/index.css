@@ -9,7 +9,7 @@ body {
 }
 
 .app-nav {
-   background-color: #ffce00;; 
+   background-color: #ffce00;
 }
 
 .log-form {
@@ -78,6 +78,7 @@ body {
   box-shadow: 0px 10px 10px rgba(0,0,0, .3),
               0px -5px 10px rgba(0,0,0,.3);
   overflow-y: scroll;
+  background-color: #ddd;
 }
 
 .product-list {

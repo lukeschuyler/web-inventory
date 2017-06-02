@@ -32,7 +32,6 @@ class Products extends Component {
     return (
       <div className="container product-list-container">
         <h1>Product List</h1>
-        <hr />
         <div className="search-container row">
           {this.state.products.map((p, i) => 
             <Product 

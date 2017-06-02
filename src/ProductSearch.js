@@ -32,7 +32,7 @@ class ProductSearch extends Component {
         <div className="container">
           <form>
             <input value={this.state.query} onChange={(e) => { this.setState({query: e.target.value}) }  }  placeholder="Search" className="amazon-search form-control"/>
-            <button onClick={(e) => { this.search(e) } } className="btn btn-link btn-lg btn-primary">Search</button>
+            <button onClick={(e) => { this.search(e) } } className="btn btn-lg btn-warning">Search</button>
           </form>
         </div>
         <div className="container product-list-container">
