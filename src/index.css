@@ -5,11 +5,23 @@ body {
   font-family: 'Cambay', sans-serif;
   font-size: 160%;
   padding-bottom: 10%;
-   background-color: #0375b4; 
+   /*background-color: #0375b4; */
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: black;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #0375b4;
 }
 
 .app-nav {
    background-color: #ffce00;
+}
+
+.btn-warning {
+  background-color: #0375b4;
 }
 
 .log-form {
@@ -92,15 +104,6 @@ body {
   margin-top: 5%;
 }
 
-.icon-cont {
-  
-}
-
-/*
-.edit-btn {
-  margin-left: 40%;
-}*/
-
 .add-btn {
   margin-left: 80%
 }
@@ -172,13 +175,6 @@ textarea {
   align-items: center;
 }
 
-/*.darken {
-    display: inline-block;
-    background: black;
-    padding: 0;
-}
-*/
-
 .darken {
     display: block;
     -webkit-transition: all 0.2s linear;
@@ -225,7 +221,7 @@ textarea {
   flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
-  color: rgba(0,0,0, .9);
+  color: black;
 }
 
 .amazon-search {
