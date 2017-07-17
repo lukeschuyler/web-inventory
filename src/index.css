@@ -9,15 +9,15 @@ body {
 }
 
 .navbar-inverse .navbar-nav>li>a {
-    color: black;
+    /*color: black;*/
 }
 
 .navbar-inverse .navbar-brand {
-    color: #0375b4;
+    /*color: #0375b4;*/
 }
 
 .app-nav {
-   background-color: #ffce00;
+   /*background-color: #ffce00;*/
 }
 
 .btn-warning {
