@@ -5,6 +5,7 @@ import { Link, Route } from 'react-router-dom'
 import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import RecSession from './RecSession.js'
+import SessionGeneral from './SessionGeneral.js'
 
 
 class Receiving extends Component {
@@ -49,8 +50,9 @@ class Receiving extends Component {
         </BootstrapTable>
       </div>
       )}/>
-    <Route path={`${this.props.match.url}/:session`} component={RecSession} />
-    </div>
+    <Route exact path={`${this.props.match.url}/:session`} render={(props) => (
+      <SessionGeneral {...props}  sessionType='rec'  />
+    )} />    </div>
     );
   }
 }

@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom'
 import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import SalesSession from './SalesSession.js'
+// import SalesSession from './SalesSession.js'
+import SessionGeneral from './SessionGeneral.js'
 
 
 class Sales extends Component {
@@ -18,7 +19,7 @@ class Sales extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-      nextState.salesSessions = nextProps.sessions;
+    nextState.salesSessions = nextProps.sessions;
   }
 
 
@@ -50,7 +51,9 @@ colFormatter(cell, row) {
         </BootstrapTable>
       </div>
       )}/>
-    <Route path={`${this.props.match.url}/:session`} component={SalesSession} />
+    <Route exact path={`${this.props.match.url}/:session`} render={(props) => (
+      <SessionGeneral {...props}  sessionType='sales'  />
+    )} />
     </div>
     );
   }

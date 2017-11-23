@@ -11,9 +11,8 @@ class SalesSession extends Component {
   }
 
   componentWillMount() {
-    axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/sales_line_items/from/${this.props.match.params.session}`)
+    axios.get(`https://inventory-manager-ls.herokuapp.com/api/v1/${this.props.sessionType}_line_items/from/${this.props.match.params.session}`)
     .then(res => {
-      console.log(res)
       let itemArray = []
       res.data.forEach(item => {
         item.product.quantity = item.quantity

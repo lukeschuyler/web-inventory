@@ -5,6 +5,7 @@ import { Link, Route } from 'react-router-dom'
 import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import WasteSession from './WasteSession.js'
+import SessionGeneral from './SessionGeneral.js'
 
 
 class Waste extends Component {
@@ -51,9 +52,11 @@ class Waste extends Component {
             </BootstrapTable>
           </div>
         )}/>
-        <Route path={`${this.props.match.url}/:session`} component={WasteSession} />
-      </div>
-      )
+    <Route exact path={`${this.props.match.url}/:session`} render={(props) => (
+      <SessionGeneral {...props}  sessionType='waste'  />
+    )} />
+    </div>
+    );
   }
 }
 

@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Link, Route } from 'react-router-dom'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import InvSession from './InvSession.js'
+import SessionGeneral from './SessionGeneral.js'
 
 class Inventory extends Component {
   constructor(props) {
@@ -47,8 +48,9 @@ class Inventory extends Component {
         </BootstrapTable>
       </div>
       )}/>
-    <Route path={`${this.props.match.url}/:session`} component={InvSession} />
-    </div>
+    <Route exact path={`${this.props.match.url}/:session`} render={(props) => (
+      <SessionGeneral {...props}  sessionType='inv'  />
+    )} />    </div>
     );
   }
 }
