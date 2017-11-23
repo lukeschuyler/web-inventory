@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom'
 import axios from 'axios'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-// import SalesSession from './SalesSession.js'
 import SessionGeneral from './SessionGeneral.js'
 
 
